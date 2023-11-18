@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/sessionListFragment">
+
+    <fragment
+        android:id="@+id/sessionListFragment"
+        android:name="com.example.finalgymlog.SessionListFragment"
+        android:label="fragment_session_list"
+        tools:layout="@layout/fragment_session_list" >
+        <action
+            android:id="@+id/action_sessionListFragment_to_addSessionFragment"
+            app:destination="@id/addSessionFragment" />
+        <action
+            android:id="@+id/action_sessionListFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
+        <action
+            android:id="@+id/action_sessionListFragment_to_generalInfoFragment"
+            app:destination="@id/generalInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSessionFragment"
+        android:name="com.example.finalgymlog.AddSessionFragment"
+        android:label="fragment_add_session"
+        tools:layout="@layout/fragment_add_session" >
+        <action
+            android:id="@+id/action_addSessionFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exoListFragment"
+        android:name="com.example.finalgymlog.ExoListFragment"
+        android:label="fragment_exo_list"
+        tools:layout="@layout/fragment_exo_list" >
+        <action
+            android:id="@+id/action_exoListFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
+        <action
+            android:id="@+id/action_exoListFragment_to_addExoFragment"
+            app:destination="@id/addExoFragment" />
+        <action
+            android:id="@+id/action_exoListFragment_to_exoInfoFragment"
+            app:destination="@id/exoInfoFragment" />
+        <action
+            android:id="@+id/action_exoListFragment_to_sessionInfoFragment"
+            app:destination="@id/sessionInfoFragment" />
+        <!--        <argument-->
+<!--            android:name="parentId"-->
+<!--            app:argType="int" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/addExoFragment"
+        android:name="com.example.finalgymlog.AddExoFragment"
+        android:label="fragment_add_exo"
+        tools:layout="@layout/fragment_add_exo" >
+        <action
+            android:id="@+id/action_addExoFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exoInfoFragment"
+        android:name="com.example.finalgymlog.ExoInfoFragment"
+        android:label="fragment_exo_info"
+        tools:layout="@layout/fragment_exo_info" >
+        <action
+            android:id="@+id/action_exoInfoFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sessionInfoFragment"
+        android:name="com.example.finalgymlog.SessionInfoFragment"
+        android:label="fragment_session_info"
+        tools:layout="@layout/fragment_session_info" >
+        <action
+            android:id="@+id/action_sessionInfoFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
+        <action
+            android:id="@+id/action_sessionInfoFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalInfoFragment"
+        android:name="com.example.finalgymlog.GeneralInfoFragment"
+        android:label="fragment_general_info"
+        tools:layout="@layout/fragment_general_info" >
+        <action
+            android:id="@+id/action_generalInfoFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
+    </fragment>
+</navigation>
