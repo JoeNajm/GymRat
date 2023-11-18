@@ -52,18 +52,34 @@
         android:id="@+id/info_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Contact me at: joe.najm@hotmail.com (for boys) or send me directly a message at +41783465001 (for girls). You will find all the instructions on the github page"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:textIsSelectable="true"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/info_git"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/info_git"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="176dp"
-        android:text="Contact me at: joe.najm@hotmail.com (for boys) or send me directly a message at +41783465001 (for girls)"
+        android:text="https://github.com/JoeNajm/GymRat"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="italic"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:textIsSelectable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

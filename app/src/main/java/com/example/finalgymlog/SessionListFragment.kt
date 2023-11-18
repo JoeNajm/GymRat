@@ -42,6 +42,10 @@ class SessionListFragment : Fragment() {
             findNavController().navigate(R.id.action_sessionListFragment_to_addSessionFragment)
         }
 
+        binding.buttonGeneralInfo.setOnClickListener {
+            findNavController().navigate(R.id.action_sessionListFragment_to_generalInfoFragment)
+        }
+
         return root
     }
 
