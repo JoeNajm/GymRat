@@ -76,6 +76,42 @@ class ExoViewModel(application: Application) : AndroidViewModel(application) {
     }
 }
 
+class FoodViewModel(application: Application) : AndroidViewModel(application) {
+    val readAllFood: LiveData<List<Food>>
+    private val repository: FoodRepository
+
+    init {
+        val foodDao = FoodDatabase.getDatabase(application).foodDao()
+        repository = FoodRepository(foodDao)
+        readAllFood = repository.readAllfood
+    }
+
+    fun addFood(food: Food) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addFood(food)
+        }
+    }
+
+    fun readFoodByParentId(parentId: Int): LiveData<List<Food>> {
+        return repository.readFoodByParentId(parentId)
+    }
+
+    fun updateFood(food: Food) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateFood(food)
+        }
+    }
+
+    fun deleteFood(food: Food) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteFood(food)
+        }
+    }
+    fun deleteFoodByParentId(parentId: Int){
+        repository.deleteFoodByParentId(parentId)
+    }
+}
+
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
     private val currentExo = MutableLiveData<Exo>()
     private val currentSession = MutableLiveData<Session>()

@@ -42,3 +42,27 @@ class ExoRepository(private val exoDao: ExoDao) {
         exoDao.deleteExoByParentId(parentId)
     }
 }
+
+class FoodRepository(private val foodDao: FoodDao) {
+    val readAllfood:  LiveData<List<Food>> = foodDao.readAllFood()
+
+    suspend fun addFood(food: Food) {
+        foodDao.addFood(food)
+    }
+
+    fun readFoodByParentId(parentId: Int): LiveData<List<Food>> {
+        return foodDao.readFoodByParentId(parentId)
+    }
+
+    suspend fun updateFood(food: Food) {
+        foodDao.updateFood(food)
+    }
+
+    suspend fun deleteFood(food: Food){
+        foodDao.deleteFood(food)
+    }
+
+    fun deleteFoodByParentId(parentId: Int){
+        foodDao.deleteFoodByParentId(parentId)
+    }
+}

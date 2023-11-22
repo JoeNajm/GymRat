@@ -84,6 +84,20 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
+        android:id="@+id/button_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/bc_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/baseline_food_bank_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonExo"
+        app:layout_constraintStart_toEndOf="@+id/button_session_info" />
+
+    <ImageButton
         android:id="@+id/button_session_info"
         android:background="@color/bc_white"
         android:layout_width="wrap_content"

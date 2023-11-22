@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_exoListFragment_to_sessionInfoFragment"
             app:destination="@id/sessionInfoFragment" />
+        <action
+            android:id="@+id/action_exoListFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
         <!--        <argument-->
 <!--            android:name="parentId"-->
 <!--            app:argType="int" />-->
@@ -88,5 +91,26 @@
         <action
             android:id="@+id/action_generalInfoFragment_to_sessionListFragment"
             app:destination="@id/sessionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodFragment"
+        android:name="com.example.finalgymlog.FoodFragment"
+        android:label="fragment_food"
+        tools:layout="@layout/fragment_food" >
+        <action
+            android:id="@+id/action_foodFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
+        <action
+            android:id="@+id/action_foodFragment_to_addFoodFragment"
+            app:destination="@id/addFoodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodFragment"
+        android:name="com.example.finalgymlog.AddFoodFragment"
+        android:label="fragment_add_food"
+        tools:layout="@layout/fragment_add_food" >
+        <action
+            android:id="@+id/action_addFoodFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
     </fragment>
 </navigation>

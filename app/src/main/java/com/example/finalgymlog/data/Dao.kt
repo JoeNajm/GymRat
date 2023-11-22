@@ -46,5 +46,26 @@ interface ExoDao {
 
     @Query("DELETE FROM exo_table WHERE parentId = :parentId")
     abstract fun deleteExoByParentId(parentId: Int)
+}
 
+@Dao
+interface FoodDao {
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addFood(food: Food)
+
+    @Query("SELECT * FROM food_table ORDER BY id ASC")
+    fun readAllFood(): LiveData<List<Food>>
+
+    @Query("SELECT * FROM food_table WHERE parentId = :parentId ORDER BY id ASC")
+    fun readFoodByParentId(parentId: Int): LiveData<List<Food>>
+
+    @Update
+    suspend fun updateFood(food: Food)
+
+    @Delete
+    suspend fun deleteFood(food: Food)
+
+    @Query("DELETE FROM food_table WHERE parentId = :parentId")
+    abstract fun deleteFoodByParentId(parentId: Int)
 }

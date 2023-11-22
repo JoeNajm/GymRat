@@ -75,6 +75,10 @@ class ExoListFragment : Fragment() {
             findNavController().navigate(R.id.action_exoListFragment_to_sessionInfoFragment)
         }
 
+        binding.buttonFood.setOnClickListener {
+            findNavController().navigate(R.id.action_exoListFragment_to_foodFragment)
+        }
+
         return root
     }
 
