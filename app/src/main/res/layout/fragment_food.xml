@@ -31,6 +31,76 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/protein_progess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progress="25"
+        app:indicatorColor="@color/teal_700"
+        app:indicatorSize="100dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_intro_Food"
+        app:trackColor="@color/red"
+        app:trackCornerRadius="10dp"
+        app:trackThickness="10dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/protein_progess_text"
+        android:layout_width="64dp"
+        android:layout_height="53dp"
+        android:text="xxx / 155 g"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/protein_progess"
+        app:layout_constraintEnd_toEndOf="@+id/protein_progess"
+        app:layout_constraintStart_toStartOf="@+id/protein_progess"
+        app:layout_constraintTop_toTopOf="@+id/protein_progess" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_food"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/protein_progess" />
+
+    <TextView
+        android:id="@+id/text_total_proteins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Proteins: "
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonExo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food"
+        android:layout_marginStart="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_total_energy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Energy: "
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonExo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food"
+        tools:ignore="MissingConstraints" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonExo"
         android:layout_width="wrap_content"
