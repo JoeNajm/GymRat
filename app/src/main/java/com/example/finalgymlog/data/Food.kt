@@ -8,8 +8,8 @@ data class Food(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val protein: Float,
-    val energy: Float,
+    val protein: Double,
+    val energy: Double,
     val type: String,
     val parentId: Int
 )

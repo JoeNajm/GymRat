@@ -40,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Proteins (g)"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_food_name" />
@@ -52,7 +52,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Energy (kCal)"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_food_proteins" />

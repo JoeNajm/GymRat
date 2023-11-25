@@ -56,7 +56,6 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="transparent"
         app:layout_constraintBottom_toBottomOf="@+id/protein_progess"
         app:layout_constraintEnd_toEndOf="@+id/protein_progess"
         app:layout_constraintStart_toStartOf="@+id/protein_progess"
@@ -65,11 +64,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_food"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="150dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/protein_progess" />
+
 
     <TextView
         android:id="@+id/text_total_proteins"
@@ -79,12 +79,54 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15sp"
+        android:layout_marginTop="50dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonExo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food"
+        app:layout_constraintTop_toBottomOf="@+id/text_protein_target"
         android:layout_marginStart="20dp"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_protein_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Protein Target (g): "
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/protein_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:inputType="numberDecimal"
+        android:text="155"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_protein_target"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food"
+        app:layout_constraintVertical_bias="0.01"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button_save_protein_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/protein_target"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food" />
 
     <TextView
         android:id="@+id/text_total_energy"
@@ -95,23 +137,25 @@
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButtonExo"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_food"
+        app:layout_constraintTop_toBottomOf="@+id/text_protein_target"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonExo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="150dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_total_proteins" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

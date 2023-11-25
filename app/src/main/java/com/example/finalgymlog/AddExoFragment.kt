@@ -59,7 +59,7 @@ class AddExoFragment : Fragment() {
             val exo = session?.id?.let { Exo(0, name, reps, weights, comment, it) }
             // Add Data to Database
             exo?.let { mExoViewModel.addExo(it) }
-            Toast.makeText(requireContext(), "successfully added!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Keep Pushing!", Toast.LENGTH_LONG).show()
             // Navigate back
             findNavController().navigate(R.id.action_addExoFragment_to_exoListFragment)
         } else {

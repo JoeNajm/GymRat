@@ -50,7 +50,7 @@ class AddSessionFragment : Fragment() {
             val session = Session(0, name, date, comment)
             // Add Data to Database
             mSessionViewModel.addSession(session)
-            Toast.makeText(requireContext(), "successfully added!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "No Pain No Gain!", Toast.LENGTH_LONG).show()
             // Navigate back
             findNavController().navigate(R.id.action_addSessionFragment_to_sessionListFragment)
         } else {

@@ -20,8 +20,15 @@ class ExoListViewHolder(
     @RequiresApi(Build.VERSION_CODES.N)
     fun bindItem(exo: Exo){
         exoListItemBinding.exoName.text = exo.name
-        exoListItemBinding.exoReps.text = exo.reps
-        exoListItemBinding.exoWeights.text = exo.weights
+        if (exo.name.lowercase() != "running" && exo.name.lowercase() != "cardio"){
+            exoListItemBinding.exoReps.text = "Reps: " + exo.reps
+            exoListItemBinding.exoWeights.text = "kg: " + exo.weights
+
+        }
+        else{
+            exoListItemBinding.exoReps.text = "Distance: " + exo.reps
+            exoListItemBinding.exoWeights.text = "Speed: " + exo.weights
+        }
 
         val drawable_img: Drawable?
 

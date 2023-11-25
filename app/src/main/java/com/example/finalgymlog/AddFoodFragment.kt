@@ -53,13 +53,13 @@ class AddFoodFragment : Fragment() {
     private fun insertDataToDatabase() {
 
         val session = sharedViewModel.getCurrentSession().value
-        var protein = 0.0F
-        var energy = 0.0F
+        var protein = 0.0
+        var energy = 0.0
         if (!binding.addFoodProteins.text.toString().isEmpty()){
-            protein = binding.addFoodProteins.text.toString().toFloat()
+            protein = binding.addFoodProteins.text.toString().toDouble()
         }
         if (!binding.addFoodEnergy.text.toString().isEmpty()){
-            energy = binding.addFoodEnergy.text.toString().toFloat()
+            energy = binding.addFoodEnergy.text.toString().toDouble()
         }
 
         val name = binding.addFoodName.text.toString()
@@ -72,7 +72,7 @@ class AddFoodFragment : Fragment() {
             val food = session?.id?.let { Food(0, name, protein, energy, type, it) }
             // Add Data to Database
             food?.let { mFoodViewModel.addFood(it) }
-            Toast.makeText(requireContext(), "successfully added!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "The Sky is your limit!", Toast.LENGTH_LONG).show()
             // Navigate back
             findNavController().navigate(R.id.action_addFoodFragment_to_foodFragment)
         } else {

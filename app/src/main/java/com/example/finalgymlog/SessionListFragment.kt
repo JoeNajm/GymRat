@@ -1,10 +1,12 @@
 package com.example.finalgymlog
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -34,6 +36,18 @@ class SessionListFragment : Fragment() {
         _binding = FragmentSessionListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val sharedPreferences = requireActivity().getSharedPreferences("MyPreferenceGender", Context.MODE_PRIVATE)
+        val gender = sharedPreferences.getString("gender", null)
+
+        if(gender == "male"){
+            binding.buttonMale.setVisibility(View.VISIBLE)
+            binding.buttonFemale.setVisibility(View.GONE)
+        }
+        else if(gender == "female"){
+            binding.buttonMale.setVisibility(View.GONE)
+            binding.buttonFemale.setVisibility(View.VISIBLE)
+        }
+
         viewModel.readAllSession.observe(viewLifecycleOwner, {
             refreshUsersUI(it)
         })
@@ -44,6 +58,26 @@ class SessionListFragment : Fragment() {
 
         binding.buttonGeneralInfo.setOnClickListener {
             findNavController().navigate(R.id.action_sessionListFragment_to_generalInfoFragment)
+        }
+
+        binding.buttonMale.setOnClickListener {
+            val editor = sharedPreferences.edit()
+            editor.putString("gender", "female")
+            editor.apply()
+            binding.buttonMale.setVisibility(View.GONE)
+            binding.buttonFemale.setVisibility(View.VISIBLE)
+            Toast.makeText(requireContext(), "Successfully switched to female profile", Toast.LENGTH_LONG)
+                .show()
+        }
+
+        binding.buttonFemale.setOnClickListener {
+            val editor = sharedPreferences.edit()
+            editor.putString("gender", "male")
+            editor.apply()
+            binding.buttonFemale.setVisibility(View.GONE)
+            binding.buttonMale.setVisibility(View.VISIBLE)
+            Toast.makeText(requireContext(), "Successfully switched to male profile", Toast.LENGTH_LONG)
+                .show()
         }
 
         return root
