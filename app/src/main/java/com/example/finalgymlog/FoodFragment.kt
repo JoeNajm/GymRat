@@ -17,6 +17,7 @@ import com.example.finalgymlog.data.FoodViewModel
 import com.example.finalgymlog.data.SharedViewModel
 import com.example.finalgymlog.databinding.FragmentExoInfoBinding
 import com.example.finalgymlog.databinding.FragmentFoodBinding
+import kotlin.math.roundToInt
 
 class FoodFragment : Fragment() {
 
@@ -44,18 +45,21 @@ class FoodFragment : Fragment() {
 
 
         sessionID?.let {
-            viewModel.readFoodByParentId(it).observe(viewLifecycleOwner, {
+            viewModel.readFoodByParentId(it).observe(viewLifecycleOwner) {
                 refreshFoodUI(it)
                 it.forEach {
                     totalProtein += it.protein
                     totalEnergy += it.energy
                 }
-                binding.proteinProgessText.text = totalProtein.toString() + " / " + targetProteins.toString() + " g"
+                totalProtein = (totalProtein * 100.0).roundToInt() / 100.0
+                totalEnergy = (totalEnergy * 100.0).roundToInt() / 100.0
+                binding.proteinProgessText.text =
+                    totalProtein.toString() + " / " + targetProteins.toString() + " g"
                 binding.proteinProgess.progress = (totalProtein / targetProteins!! * 100).toInt()
 
                 binding.textTotalProteins.text = "Total Proteins: " + totalProtein.toString() + " g"
                 binding.textTotalEnergy.text = "Total Energy: " + totalEnergy.toString() + " kcal"
-            })
+            }
         }
 
         binding.buttonBackFood.setOnClickListener{

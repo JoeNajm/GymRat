@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_exoListFragment_to_foodFragment"
             app:destination="@id/foodFragment" />
+        <action
+            android:id="@+id/action_exoListFragment_to_addRepsFragment"
+            app:destination="@id/addRepsFragment" />
         <!--        <argument-->
 <!--            android:name="parentId"-->
 <!--            app:argType="int" />-->
@@ -112,5 +115,14 @@
         <action
             android:id="@+id/action_addFoodFragment_to_foodFragment"
             app:destination="@id/foodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRepsFragment"
+        android:name="com.example.finalgymlog.AddRepsFragment"
+        android:label="fragment_add_reps"
+        tools:layout="@layout/fragment_add_reps" >
+        <action
+            android:id="@+id/action_addRepsFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
     </fragment>
 </navigation>

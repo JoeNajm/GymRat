@@ -87,6 +87,11 @@ class ExoListFragment : Fragment() {
         findNavController().navigate(R.id.action_exoListFragment_to_exoInfoFragment)
     }
 
+    fun onClickRep(exo: Exo) {
+        sharedViewModel.setCurrentExo(exo)
+        findNavController().navigate(R.id.action_exoListFragment_to_addRepsFragment)
+    }
+
     private fun refreshExoUI(exoList: List<Exo>) {
         // Passing the LayoutManager and Adapter to the RecyclerView of the Store
         val thisExoFragment = this

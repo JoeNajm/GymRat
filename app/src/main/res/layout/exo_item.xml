@@ -58,6 +58,15 @@
                 android:textSize="12sp"
                 android:lines="1" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButtonRep"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_add"
+                android:visibility="visible" />
+
 
         </LinearLayout>
 

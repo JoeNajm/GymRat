@@ -19,6 +19,7 @@ import com.example.finalgymlog.data.FoodViewModel
 import com.example.finalgymlog.data.SharedViewModel
 import com.example.finalgymlog.databinding.FragmentAddFoodBinding
 import com.example.finalgymlog.databinding.FragmentFoodBinding
+import kotlin.math.roundToInt
 
 class AddFoodFragment : Fragment() {
     private lateinit var mFoodViewModel: FoodViewModel
@@ -56,7 +57,7 @@ class AddFoodFragment : Fragment() {
         var protein = 0.0
         var energy = 0.0
         if (!binding.addFoodProteins.text.toString().isEmpty()){
-            protein = binding.addFoodProteins.text.toString().toDouble()
+            protein = (binding.addFoodProteins.text.toString().toDouble() * 100.0).roundToInt() / 100.0
         }
         if (!binding.addFoodEnergy.text.toString().isEmpty()){
             energy = binding.addFoodEnergy.text.toString().toDouble()

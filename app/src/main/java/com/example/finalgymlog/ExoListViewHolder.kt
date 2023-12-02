@@ -65,6 +65,10 @@ class ExoListViewHolder(
         exoListItemBinding.exoListView.setOnClickListener {
             clickListener.onClick(exo)
         }
+
+        exoListItemBinding.floatingActionButtonRep.setOnClickListener {
+            clickListener.onClickRep(exo)
+        }
     }
 
 }
