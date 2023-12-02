@@ -8,13 +8,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.finalgymlog.data.Exo
 import com.example.finalgymlog.data.ExoViewModel
 import com.example.finalgymlog.data.Session
 import com.example.finalgymlog.data.SessionViewModel
 import com.example.finalgymlog.data.SharedViewModel
-import com.example.finalgymlog.databinding.FragmentExoListBinding
 import com.example.finalgymlog.databinding.FragmentSessionInfoBinding
 
 class SessionInfoFragment : Fragment() {
@@ -39,6 +36,8 @@ class SessionInfoFragment : Fragment() {
         binding.sessionComments.setText(currentSession?.comment)
         binding.sessionDate.setText(currentSession?.date)
 
+        binding.weight.setText(currentSession?.body_weight.toString())
+
         if("leg" in currentSession?.name!!.lowercase()){
             binding.sessionImage.setImageResource(R.drawable.legs)
         }
@@ -55,11 +54,13 @@ class SessionInfoFragment : Fragment() {
 
         binding.buttonBackSession.setOnClickListener {
 
+            val weight = binding.weight.text.toString().toDouble()
             val updatedSession = Session(
                 currentSession.id,
                 binding.sessionName.text.toString(),
                 binding.sessionDate.text.toString(),
-                binding.sessionComments.text.toString()
+                binding.sessionComments.text.toString(),
+                weight
             )
             sessionViewModel.updateSession(updatedSession)
             sharedViewModel.setCurrentSession(updatedSession)
@@ -81,7 +82,6 @@ class SessionInfoFragment : Fragment() {
             binding.buttonDeleteSure.setVisibility(View.GONE)
             findNavController().navigate(R.id.action_sessionInfoFragment_to_sessionListFragment)
         }
-
 
         return root
     }

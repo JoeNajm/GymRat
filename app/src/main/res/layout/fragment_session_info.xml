@@ -33,24 +33,14 @@
         app:layout_constraintTop_toBottomOf="@+id/button_back_arrow">
 
         <LinearLayout
-            android:id="@+id/linearLayout_med"
+            android:id="@+id/linearLayout_session"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_details"
-            tools:context=".DetailsMedFragment">
-
-            <ImageView
-                android:id="@+id/session_image"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/dumbbell" />
+            app:layout_constraintTop_toBottomOf="@+id/text_details">
 
             <EditText
                 android:id="@+id/session_name"
@@ -77,6 +67,37 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
+        <LinearLayout
+            android:id="@+id/linearLayout_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/session_date">
+
+            <TextView
+                android:id="@+id/your_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Your Weight (kg):"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Weight"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp"
+                android:textSize="20sp" />
+        </LinearLayout>
 
             <EditText
                 android:id="@+id/session_comments"
@@ -88,6 +109,15 @@
                 android:text="Comments"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/session_image"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/dumbbell" />
 
         </LinearLayout>
     </ScrollView>
@@ -113,18 +143,16 @@
         android:text="Save changes"
         android:textColor="@color/white"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <ImageButton
         android:id="@+id/button_delete_trash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="18dp"
         android:background="@color/bc_white"

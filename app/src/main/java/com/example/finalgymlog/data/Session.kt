@@ -1,6 +1,5 @@
 package com.example.finalgymlog.data
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -11,4 +10,5 @@ data class Session(
     val name: String,
     val date: String,
     val comment: String,
+    val body_weight: Double?,
 )

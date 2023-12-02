@@ -33,17 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_intro_add_session"  />
 
-    <EditText
-        android:id="@+id/add_session_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Date"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_session_name" />
 
     <EditText
         android:id="@+id/add_session_comment"
@@ -54,7 +43,7 @@
         android:hint="Comment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_session_date" />
+        app:layout_constraintTop_toBottomOf="@+id/add_session_name" />
 
     <Button
         android:id="@+id/add_btn"

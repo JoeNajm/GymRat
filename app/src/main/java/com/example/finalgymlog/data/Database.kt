@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.finalgymlog.data.Session
 
-@Database(entities = [Session::class], version = 1, exportSchema = false)
+@Database(entities = [Session::class], version = 2, exportSchema = false)
 abstract class SessionDatabase: RoomDatabase() {
 
     abstract fun sessionDao(): SessionDao
@@ -14,6 +16,12 @@ abstract class SessionDatabase: RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE:SessionDatabase? = null
+
+        val migration_1_2: Migration = object: Migration(1, 2){
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE session_table ADD COLUMN body_weight REAL DEFAULT 0.0")
+            }
+        }
 
         fun getDatabase(context: Context):SessionDatabase{
             val tempInstance = INSTANCE
@@ -25,7 +33,9 @@ abstract class SessionDatabase: RoomDatabase() {
                     context.applicationContext,
                     SessionDatabase::class.java,
                     "session_database"
-                ).build()
+                )
+                    .addMigrations(migration_1_2)
+                    .build()
                 INSTANCE = instance
                 return instance
             }

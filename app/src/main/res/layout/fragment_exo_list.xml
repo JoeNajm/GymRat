@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -62,32 +63,29 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_exo"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name_Session" />
+
+        app:layout_constraintTop_toBottomOf="@+id/text_date_Session" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonExo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
         android:clickable="true"
-        android:src="@drawable/ic_add"
         android:focusable="true"
+        android:src="@drawable/ic_add"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_exo" />
 
     <ImageButton
         android:id="@+id/button_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:background="@color/bc_white"
         android:clickable="true"
         android:focusable="true"
@@ -95,19 +93,21 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonExo"
-        app:layout_constraintStart_toEndOf="@+id/button_session_info" />
+        app:layout_constraintStart_toEndOf="@+id/button_session_info"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_exo" />
+
 
     <ImageButton
         android:id="@+id/button_session_info"
-        android:background="@color/bc_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:background="@color/bc_white"
         android:clickable="true"
-        android:src="@drawable/baseline_info_24_v2"
         android:focusable="true"
+        android:src="@drawable/baseline_info_24_v2"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="visible"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="18dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_exo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

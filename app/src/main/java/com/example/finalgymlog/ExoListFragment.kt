@@ -22,6 +22,7 @@ import com.example.finalgymlog.databinding.FragmentSessionListBinding
 class ExoListFragment : Fragment() {
 
     private val viewModel: ExoViewModel by activityViewModels()
+    private val sessionViewModel: SessionViewModel by activityViewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentExoListBinding? = null
     private val binding get() = _binding!!

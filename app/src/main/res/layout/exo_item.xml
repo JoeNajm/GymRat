@@ -22,12 +22,32 @@
             android:background="@color/white"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/exo_Image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/dumbbell"
-                android:adjustViewBounds="true"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/exo_Image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dumbbell"
+                    android:adjustViewBounds="true"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButtonRep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:backgroundTint="@color/red"
+                    android:src="@drawable/ic_add"
+
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/exo_Name"
@@ -57,16 +77,6 @@
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:lines="1" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButtonRep"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@drawable/ic_add"
-                android:visibility="visible" />
-
 
         </LinearLayout>
 

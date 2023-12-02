@@ -33,25 +33,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button_back_arrow">
 
         <LinearLayout
-            android:id="@+id/linearLayout_med"
+            android:id="@+id/linearLayout_exo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_details"
-            app:layout_constraintVertical_bias="0.047"
-            tools:context=".DetailsMedFragment">
-
-            <ImageView
-                android:id="@+id/exo_image"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/dumbbell" />
+            app:layout_constraintTop_toBottomOf="@+id/text_details">
 
             <EditText
                 android:id="@+id/exo_name"
@@ -101,6 +89,15 @@
                 android:text="Comments"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/exo_image"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/dumbbell" />
 
         </LinearLayout>
     </ScrollView>
