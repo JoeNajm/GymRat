@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_sessionListFragment_to_generalInfoFragment"
             app:destination="@id/generalInfoFragment" />
+        <action
+            android:id="@+id/action_sessionListFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSessionFragment"
@@ -124,5 +127,14 @@
         <action
             android:id="@+id/action_addRepsFragment_to_exoListFragment"
             app:destination="@id/exoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.finalgymlog.StatisticsFragment"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" >
+        <action
+            android:id="@+id/action_statisticsFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
     </fragment>
 </navigation>

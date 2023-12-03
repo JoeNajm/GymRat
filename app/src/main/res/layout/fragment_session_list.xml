@@ -38,8 +38,8 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:clickable="true"
-        android:src="@drawable/ic_add"
         android:focusable="true"
+        android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -55,6 +55,20 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="visible"
         android:layout_marginStart="18dp"
+        android:layout_marginBottom="18dp"/>
+
+    <ImageButton
+        android:id="@+id/button_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bc_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/baseline_assessment_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toEndOf="@+id/button_general_info"
         android:layout_marginBottom="18dp"/>
 
     <ImageButton

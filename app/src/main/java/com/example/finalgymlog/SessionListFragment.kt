@@ -80,6 +80,10 @@ class SessionListFragment : Fragment() {
                 .show()
         }
 
+        binding.buttonStats.setOnClickListener {
+            findNavController().navigate(R.id.action_sessionListFragment_to_statisticsFragment)
+        }
+
         return root
     }
 
