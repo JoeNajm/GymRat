@@ -94,6 +94,11 @@ class ExoListFragment : Fragment() {
     }
 
     private fun refreshExoUI(exoList: List<Exo>) {
+        if(exoList.size == 0){
+            binding.textAddExo.setVisibility(View.VISIBLE)
+        }else{
+            binding.textAddExo.setVisibility(View.GONE)
+        }
         // Passing the LayoutManager and Adapter to the RecyclerView of the Store
         val thisExoFragment = this
         binding.recyclerViewExo.apply {

@@ -116,4 +116,6 @@ dependencies {
 
     // optional - Paging 3 Integration
     implementation("androidx.room:room-paging:$room_version")
+
+    implementation("com.androidplot:androidplot-core:1.2.1")
 }

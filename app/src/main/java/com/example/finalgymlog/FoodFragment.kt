@@ -90,6 +90,11 @@ class FoodFragment : Fragment() {
     }
 
     private fun refreshFoodUI(foodList: List<Food>) {
+        if(foodList.size == 0){
+            binding.textAddFood.setVisibility(View.VISIBLE)
+        }else{
+            binding.textAddFood.setVisibility(View.GONE)
+        }
         // Passing the LayoutManager and Adapter to the RecyclerView of the Store
         val thisFoodFragment = this
         binding.recyclerViewFood.apply {

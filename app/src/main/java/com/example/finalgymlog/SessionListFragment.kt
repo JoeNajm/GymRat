@@ -91,6 +91,11 @@ class SessionListFragment : Fragment() {
     }
 
     private fun refreshUsersUI(sessionList: List<Session>) {
+        if(sessionList.size == 0){
+            binding.textAddSession.setVisibility(View.VISIBLE)
+        }else{
+            binding.textAddSession.setVisibility(View.GONE)
+        }
         // Passing the LayoutManager and Adapter to the RecyclerView of the Store
         val thisSessionFragment = this
         binding.recyclerViewUser.apply {
