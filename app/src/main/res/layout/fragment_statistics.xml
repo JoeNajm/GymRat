@@ -22,6 +22,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <TextView
+        android:id="@+id/text_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last 10 days"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_statistics" />
+
     <ImageButton
         android:id="@+id/button_back_arrow"
         android:layout_width="wrap_content"
@@ -38,13 +52,46 @@
         style="@style/APDefacto.Light"
         android:layout_width="wrap_content"
         android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_ten_days"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_statistics"
+        app:layout_constraintTop_toBottomOf="@+id/text_mode"
         app:rangeTitle="rang"
         app:title="Weight" />
 
+    <Button
+        android:id="@+id/button_ten_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Last 10 days"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="25dp" />
 
+    <Button
+        android:id="@+id/button_all_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All days"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_no_session"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No sessions recorded"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

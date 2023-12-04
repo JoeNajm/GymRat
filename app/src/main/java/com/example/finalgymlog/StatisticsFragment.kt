@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.androidplot.xy.BoundaryMode
 import com.androidplot.xy.CatmullRomInterpolator
 import com.androidplot.xy.LineAndPointFormatter
 import com.androidplot.xy.PanZoom
 import com.androidplot.xy.SimpleXYSeries
 import com.androidplot.xy.XYGraphWidget
 import com.androidplot.xy.XYSeries
+import com.example.finalgymlog.data.Session
 import com.example.finalgymlog.data.SessionViewModel
 import com.example.finalgymlog.databinding.FragmentStatisticsBinding
 import java.text.FieldPosition
@@ -36,17 +38,72 @@ class StatisticsFragment : Fragment() {
         _binding = FragmentStatisticsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        var STATE = "ten_days"
+
         binding.buttonBackArrow.setOnClickListener {
             findNavController().navigate(R.id.action_statisticsFragment_to_sessionListFragment)
         }
 
         val session = viewModel.readAllSession.value
-        val MODE = "weight"
+
+        if (session != null) {
+            if(session.size == 0){
+                binding.buttonTenDays.visibility = View.GONE
+                binding.buttonAllDays.visibility = View.GONE
+                binding.plot.visibility = View.GONE
+                binding.textMode.visibility = View.GONE
+                binding.textNoSession.visibility = View.VISIBLE
+            }
+            else{
+                binding.buttonTenDays.visibility = View.VISIBLE
+                binding.buttonAllDays.visibility = View.VISIBLE
+                binding.plot.visibility = View.VISIBLE
+                binding.textMode.visibility = View.VISIBLE
+                binding.textNoSession.visibility = View.GONE
+                plot_graph(STATE, session)
+            }
+        }
+        binding.buttonAllDays.setOnClickListener {
+            binding.textMode.setText("All days")
+            STATE = "all_days"
+            plot_graph(STATE, session)
+        }
+        binding.buttonTenDays.setOnClickListener {
+            binding.textMode.setText("Last 10 days")
+            STATE = "ten_days"
+            plot_graph(STATE, session)
+        }
+
+
+        return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Hide the action bar
+        (activity as AppCompatActivity).supportActionBar?.hide()
+    }
+
+    fun plot_graph(STATE: String, session: List<Session>?){
+
+        binding.plot.clear()
 
         var dates = arrayOf<String>()
         var data = arrayOf<Double>()
 
-        if(MODE == "weight"){
+        if(STATE == "ten_days"){
+            var j_idx = 0
+            for (i in session!!.take(10).reversed()) {
+                if (i.body_weight!!.toDouble() != 0.0) {
+                    if (j_idx < 10){
+                        data += i.body_weight.toDouble()
+                        dates += i.date.takeLast(5)
+                        j_idx += 1
+                    }
+                }
+            }
+        }
+        else if(STATE == "all_days"){
             for (i in session!!.reversed()) {
                 if (i.body_weight!!.toDouble() != 0.0) {
                     data += i.body_weight.toDouble()
@@ -55,7 +112,8 @@ class StatisticsFragment : Fragment() {
             }
         }
 
-
+        println(dates.contentToString())
+        println(data.contentToString())
 
         val series1 : XYSeries = SimpleXYSeries(
             Arrays.asList(* data),SimpleXYSeries.ArrayFormat.Y_VALS_ONLY
@@ -65,7 +123,7 @@ class StatisticsFragment : Fragment() {
 
         series1Format.setInterpolationParams(
             CatmullRomInterpolator.Params(10,
-            CatmullRomInterpolator.Type.Centripetal))
+                CatmullRomInterpolator.Type.Centripetal))
 
 
         binding.plot.addSeries(series1,series1Format)
@@ -84,16 +142,20 @@ class StatisticsFragment : Fragment() {
             }
         }
 
+        val isEqual = data.distinct().count() == 1
+        println(isEqual)
+        if(isEqual){
+            binding.plot.setRangeBoundaries(data[0]-2, data[0]+2, BoundaryMode.FIXED)
+        }
+        else{
+            binding.plot.setRangeBoundaries(data.min(), data.max(), BoundaryMode.FIXED)
+        }
+
         PanZoom.attach(binding.plot)
-
-
-        return root
+        binding.plot.redraw()
     }
 
-    override fun onResume() {
-        super.onResume()
-        // Hide the action bar
-        (activity as AppCompatActivity).supportActionBar?.hide()
-    }
+//    fun <T> allEqual(vararg entries: T): Boolean = entries.all { it == entries[0] }
+
 
 }
