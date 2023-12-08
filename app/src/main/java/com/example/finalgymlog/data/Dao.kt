@@ -69,3 +69,20 @@ interface FoodDao {
     @Query("DELETE FROM food_table WHERE parentId = :parentId")
     abstract fun deleteFoodByParentId(parentId: Int)
 }
+
+
+@Dao
+interface FridgeFoodDao {
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addFridgeFood(fridgefood: FridgeFood)
+
+    @Query("SELECT * FROM fridgefood_table ORDER BY id ASC")
+    fun readAllFridgeFood(): LiveData<List<FridgeFood>>
+
+    @Update
+    suspend fun updateFridgeFood(fridgefood: FridgeFood)
+
+    @Delete
+    suspend fun deleteFridgeFood(fridgefood: FridgeFood)
+}

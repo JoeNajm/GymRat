@@ -84,6 +84,10 @@ class SessionListFragment : Fragment() {
             findNavController().navigate(R.id.action_sessionListFragment_to_statisticsFragment)
         }
 
+        binding.buttonFridge.setOnClickListener {
+            findNavController().navigate(R.id.action_sessionListFragment_to_fridgeFragment)
+        }
+
         return root
     }
 

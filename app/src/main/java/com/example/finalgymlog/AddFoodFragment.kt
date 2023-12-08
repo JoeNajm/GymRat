@@ -60,7 +60,7 @@ class AddFoodFragment : Fragment() {
             protein = (binding.addFoodProteins.text.toString().toDouble() * 100.0).roundToInt() / 100.0
         }
         if (!binding.addFoodEnergy.text.toString().isEmpty()){
-            energy = binding.addFoodEnergy.text.toString().toDouble()
+            energy = (binding.addFoodEnergy.text.toString().toDouble() * 100.0).roundToInt() / 100.0
         }
 
         val name = binding.addFoodName.text.toString()

@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_sessionListFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_sessionListFragment_to_fridgeFragment"
+            app:destination="@id/fridgeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSessionFragment"
@@ -136,5 +139,26 @@
         <action
             android:id="@+id/action_statisticsFragment_to_sessionListFragment"
             app:destination="@id/sessionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fridgeFragment"
+        android:name="com.example.finalgymlog.FridgeFragment"
+        android:label="fragment_fridge"
+        tools:layout="@layout/fragment_fridge" >
+        <action
+            android:id="@+id/action_fridgeFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
+        <action
+            android:id="@+id/action_fridgeFragment_to_addFoodFridgeFragment"
+            app:destination="@id/addFoodFridgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodFridgeFragment"
+        android:name="com.example.finalgymlog.AddFoodFridgeFragment"
+        android:label="fragment_add_food_fridge"
+        tools:layout="@layout/fragment_add_food_fridge" >
+        <action
+            android:id="@+id/action_addFoodFridgeFragment_to_fridgeFragment"
+            app:destination="@id/fridgeFragment" />
     </fragment>
 </navigation>

@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddSessionFragment"
+    tools:context=".AddFoodFridgeFragment"
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/text_intro_add_session"
-        android:text="Add session"
+        android:id="@+id/text_intro_add_Food"
+        android:text="Add food (100 g)"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,70 +22,60 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/add_session_name"
+        android:id="@+id/add_food_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Name (Upper / legs ...)"
+        android:hint="Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_intro_add_session"  />
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout_weight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_session_name">
-
-        <TextView
-            android:id="@+id/your_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:inputType="numberDecimal"
-            android:text="Your Weight (kg):"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="0.0"
-            android:inputType="numberDecimal"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/text_intro_add_Food" />
 
     <EditText
-        android:id="@+id/add_session_comment"
+        android:id="@+id/add_food_proteins"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Comment"
+        android:hint="Proteins (g)"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_weight" />
+        app:layout_constraintTop_toBottomOf="@+id/add_food_name" />
+
+    <EditText
+        android:id="@+id/add_food_energy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Energy (kCal)"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_food_proteins" />
+
+    <EditText
+        android:id="@+id/add_food_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Type (carbs ...)"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_food_energy" />
 
     <Button
-        android:id="@+id/add_btn"
+        android:id="@+id/add_btn_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_session_comment" />
+        app:layout_constraintTop_toBottomOf="@+id/add_food_type" />
 </androidx.constraintlayout.widget.ConstraintLayout>

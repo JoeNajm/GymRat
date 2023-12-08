@@ -111,6 +111,35 @@ class FoodViewModel(application: Application) : AndroidViewModel(application) {
     }
 }
 
+class FridgeFoodViewModel(application: Application) : AndroidViewModel(application) {
+    val readAllFridgeFood: LiveData<List<FridgeFood>>
+    private val repository: FridgeFoodRepository
+
+    init {
+        val fridgefoodDao = FridgeFoodDatabase.getDatabase(application).fridgefoodDao()
+        repository = FridgeFoodRepository(fridgefoodDao)
+        readAllFridgeFood = repository.readAllfridgefood
+    }
+
+    fun addFridgeFood(fridgefood: FridgeFood) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addFridgeFood(fridgefood)
+        }
+    }
+
+    fun updateFridgeFood(fridgefood: FridgeFood) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateFridgeFood(fridgefood)
+        }
+    }
+
+    fun deleteFridgeFood(fridgefood: FridgeFood) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteFridgeFood(fridgefood)
+        }
+    }
+}
+
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
     private val currentExo = MutableLiveData<Exo>()
     private val currentSession = MutableLiveData<Session>()

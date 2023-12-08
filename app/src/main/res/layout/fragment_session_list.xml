@@ -67,7 +67,7 @@
         android:src="@drawable/baseline_assessment_24"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
+        android:layout_marginStart="30dp"
         app:layout_constraintStart_toEndOf="@+id/button_general_info"
         android:layout_marginBottom="18dp"/>
 
@@ -109,4 +109,19 @@
         android:background="@color/white"
         android:layout_marginEnd="10dp"
         android:visibility="gone"/>
+
+
+    <ImageButton
+        android:id="@+id/button_fridge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:background="@color/bc_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/baseline_food_bank_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

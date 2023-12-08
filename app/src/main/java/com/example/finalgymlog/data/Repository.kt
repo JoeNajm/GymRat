@@ -66,3 +66,19 @@ class FoodRepository(private val foodDao: FoodDao) {
         foodDao.deleteFoodByParentId(parentId)
     }
 }
+
+class FridgeFoodRepository(private val fridgefoodDao: FridgeFoodDao) {
+    val readAllfridgefood:  LiveData<List<FridgeFood>> = fridgefoodDao.readAllFridgeFood()
+
+    suspend fun addFridgeFood(fridgefood: FridgeFood) {
+        fridgefoodDao.addFridgeFood(fridgefood)
+    }
+
+    suspend fun updateFridgeFood(fridgefood: FridgeFood) {
+        fridgefoodDao.updateFridgeFood(fridgefood)
+    }
+
+    suspend fun deleteFridgeFood(fridgefood: FridgeFood){
+        fridgefoodDao.deleteFridgeFood(fridgefood)
+    }
+}

@@ -18,6 +18,7 @@ import com.example.finalgymlog.databinding.FragmentAddSessionBinding
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import kotlin.math.roundToInt
 
 class AddSessionFragment : Fragment() {
     private lateinit var mSessionViewModel: SessionViewModel
@@ -49,19 +50,21 @@ class AddSessionFragment : Fragment() {
     private fun insertDataToDatabase(formattedDate: String) {
 
         val name = binding.addSessionName.text.toString()
+        var weight = binding.weight.text.toString().toDouble()
         val comment = binding.addSessionComment.text.toString()
 
 
-        if (inputCheck(name, formattedDate)) {
+        if (name != "") {
             // Create User Object
-            val session = Session(0, name, formattedDate, comment, 0.0)
+            weight = (weight * 100.0).roundToInt() / 100.0
+            val session = Session(0, name, formattedDate, comment, weight)
             // Add Data to Database
             mSessionViewModel.addSession(session)
             Toast.makeText(requireContext(), "No Pain No Gain!", Toast.LENGTH_LONG).show()
             // Navigate back
             findNavController().navigate(R.id.action_addSessionFragment_to_sessionListFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), "Please fill out the name", Toast.LENGTH_LONG)
                 .show()
         }
     }
@@ -71,10 +74,6 @@ class AddSessionFragment : Fragment() {
         val currentDate = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("EEEE dd/MM", Locale.ENGLISH)
         return currentDate.format(formatter)
-    }
-
-    private fun inputCheck(name: String, date: String): Boolean {
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(date))
     }
 
     override fun onResume() {
