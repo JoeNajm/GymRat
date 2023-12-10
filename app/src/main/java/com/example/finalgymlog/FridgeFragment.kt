@@ -24,6 +24,7 @@ class FridgeFragment : Fragment() {
     private var _binding: FragmentFridgeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: FridgeFoodViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,17 +54,23 @@ class FridgeFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
     }
 
+    fun onClick(food: FridgeFood){
+        sharedViewModel.setCurrentFridgeFood(food)
+        findNavController().navigate(R.id.action_fridgeFragment_to_fridgeFoodInfoFragment)
+    }
+
     private fun refreshFridgeUI(fridgeList: List<FridgeFood>) {
-        if(fridgeList.size == 0){
-            binding.textAddFridgeFood.setVisibility(View.VISIBLE)
+        if(fridgeList.isEmpty()){
+            binding.textAddFridgeFood.visibility = View.VISIBLE
         }else{
-            binding.textAddFridgeFood.setVisibility(View.GONE)
+            binding.textAddFridgeFood.visibility = View.GONE
         }
         // Passing the LayoutManager and Adapter to the RecyclerView of the Store
         val thisFridgeFragment = this
         binding.recyclerViewFood.apply {
             layoutManager = GridLayoutManager(activity?.applicationContext, 2)
-            adapter = FridgeFoodListAdapter(fridgeList, thisFridgeFragment)
+//            adapter = FridgeFoodListAdapter(fridgeList)
+            adapter = FridgeFoodListAdapter(fridgeList, thisFridgeFragment, null)
         }
     }
 }

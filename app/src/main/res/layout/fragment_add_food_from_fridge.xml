@@ -4,32 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFoodFragment"
+    tools:context=".AddFoodFromFridgeFragment"
     android:padding="24dp">
-
-    <Button
-        android:id="@+id/button_existing_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:text="From Fridge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_intro_add_Food" />
-
-    <Button
-        android:id="@+id/button_new_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:text="New Food"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_intro_add_Food" />
 
     <TextView
         android:id="@+id/text_intro_add_Food"
-        android:text="Add food"
+        android:text="Add food from fridge"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,89 +21,98 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/emtpy_fridge_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your fridge is empty! Click on the food logo at the sessions list page to add items!"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_food"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/button_existing_food" />
 
 
     <LinearLayout
-        android:id="@+id/linearLayout_new_food"
+        android:id="@+id/linearLayout_details_food"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/button_new_food">
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/text_intro_add_Food">
 
-        <EditText
-            android:id="@+id/add_food_name"
+        <TextView
+            android:id="@+id/food_name"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
+            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_existing_food"
             android:layout_width="match_parent"/>
 
-        <EditText
-            android:id="@+id/add_food_proteins"
+        <TextView
+            android:id="@+id/food_proteins"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Proteins (g)"
-            android:inputType="numberDecimal"
+            android:text="Proteins (g)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_food_name" />
 
-        <EditText
-            android:id="@+id/add_food_energy"
+        <TextView
+            android:id="@+id/food_energy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Energy (kCal)"
-            android:inputType="numberDecimal"
+            android:text="Energy (kCal)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_food_proteins" />
 
-        <EditText
-            android:id="@+id/add_food_type"
+        <TextView
+            android:id="@+id/food_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Type (carbs ...)"
-            android:inputType="textPersonName"
+            android:text="Type (carbs ...)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_food_energy" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_quantity_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_details_food">
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:text="Quantity (g) : "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/quantity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/add_btn_food"
@@ -131,8 +120,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Add"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_new_food" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_quantity_food" />
 </androidx.constraintlayout.widget.ConstraintLayout>

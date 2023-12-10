@@ -9,7 +9,8 @@ import com.example.finalgymlog.databinding.FoodItemBinding
 
 class FridgeFoodListViewHolder(
     private val foodListItemBinding: FoodItemBinding,
-    private val clickListener: FridgeFragment,
+    private val clickListenerFridge: FridgeFragment?,
+    private val clickListenerAddFood: AddFoodFragment?
 ) : RecyclerView.ViewHolder(foodListItemBinding.root){
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -24,6 +25,16 @@ class FridgeFoodListViewHolder(
         foodListItemBinding.foodType.text ="Type: N/A"
         }
 
+
+        foodListItemBinding.foodListView.setOnClickListener{
+            if(clickListenerFridge == null){
+                clickListenerAddFood?.onClick(fridgefood)
+            } else if(clickListenerAddFood == null){
+                clickListenerFridge?.onClick(fridgefood)
+            }
+        }
+
     }
+
 
 }

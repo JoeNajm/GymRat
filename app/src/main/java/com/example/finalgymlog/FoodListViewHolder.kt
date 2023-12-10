@@ -14,9 +14,9 @@ class FoodListViewHolder(
     @RequiresApi(Build.VERSION_CODES.N)
     fun bindItem(food: Food){
         foodListItemBinding.foodName.text = food.name
-        foodListItemBinding.foodEnergy.text = food.energy.toString() + " kcal"
-        foodListItemBinding.foodProteins.text = food.protein.toString() + " g"
-        foodListItemBinding.foodType.text ="Type" + food.type
+        foodListItemBinding.foodEnergy.text =  "Energy: " + food.energy.toString() + " kcal"
+        foodListItemBinding.foodProteins.text = "Protein: " +  food.protein.toString() + " g"
+        foodListItemBinding.foodType.text ="Type: " + food.type
 
     }
 

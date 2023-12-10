@@ -11,13 +11,14 @@ import com.example.finalgymlog.databinding.FoodItemBinding
 
 class FridgeFoodListAdapter(
     private var fridgefoodList: List<FridgeFood>,
-    private val clickListener: FridgeFragment
+    private val clickListenerFridge: FridgeFragment?,
+    private val clickListenerAddFood: AddFoodFragment?
 ) : RecyclerView.Adapter<FridgeFoodListViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FridgeFoodListViewHolder {
         val from = LayoutInflater.from(parent.context)
         val binding = FoodItemBinding.inflate(from, parent, false)
-        return FridgeFoodListViewHolder(binding, clickListener)
+        return FridgeFoodListViewHolder(binding, clickListenerFridge, clickListenerAddFood)
     }
 
     override fun onBindViewHolder(holder: FridgeFoodListViewHolder, position: Int) {

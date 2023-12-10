@@ -143,6 +143,7 @@ class FridgeFoodViewModel(application: Application) : AndroidViewModel(applicati
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
     private val currentExo = MutableLiveData<Exo>()
     private val currentSession = MutableLiveData<Session>()
+    private val currentFridgeFood = MutableLiveData<FridgeFood>()
 
     fun setCurrentExo(input: Exo) {
         currentExo.value = input
@@ -158,5 +159,13 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     fun getCurrentSession(): LiveData<Session> {
         return currentSession
+    }
+
+    fun setCurrentFridgeFood(input: FridgeFood) {
+        currentFridgeFood.value = input
+    }
+
+    fun getCurrentFridgeFood(): LiveData<FridgeFood> {
+        return currentFridgeFood
     }
 }

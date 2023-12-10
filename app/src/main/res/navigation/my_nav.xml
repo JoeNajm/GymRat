@@ -121,6 +121,9 @@
         <action
             android:id="@+id/action_addFoodFragment_to_foodFragment"
             app:destination="@id/foodFragment" />
+        <action
+            android:id="@+id/action_addFoodFragment_to_addFoodFromFridgeFragment"
+            app:destination="@id/addFoodFromFridgeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRepsFragment"
@@ -151,6 +154,9 @@
         <action
             android:id="@+id/action_fridgeFragment_to_addFoodFridgeFragment"
             app:destination="@id/addFoodFridgeFragment" />
+        <action
+            android:id="@+id/action_fridgeFragment_to_fridgeFoodInfoFragment"
+            app:destination="@id/fridgeFoodInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFoodFridgeFragment"
@@ -159,6 +165,24 @@
         tools:layout="@layout/fragment_add_food_fridge" >
         <action
             android:id="@+id/action_addFoodFridgeFragment_to_fridgeFragment"
+            app:destination="@id/fridgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodFromFridgeFragment"
+        android:name="com.example.finalgymlog.AddFoodFromFridgeFragment"
+        android:label="fragment_add_food_from_fridge"
+        tools:layout="@layout/fragment_add_food_from_fridge" >
+        <action
+            android:id="@+id/action_addFoodFromFridgeFragment_to_foodFragment"
+            app:destination="@id/foodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fridgeFoodInfoFragment"
+        android:name="com.example.finalgymlog.FridgeFoodInfoFragment"
+        android:label="fragment_fridge_food_info"
+        tools:layout="@layout/fragment_fridge_food_info" >
+        <action
+            android:id="@+id/action_fridgeFoodInfoFragment_to_fridgeFragment"
             app:destination="@id/fridgeFragment" />
     </fragment>
 </navigation>
