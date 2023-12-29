@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_addExoFragment_to_exoListFragment"
             app:destination="@id/exoListFragment" />
+        <action
+            android:id="@+id/action_addExoFragment_to_addExoFromInventoryFragment"
+            app:destination="@id/addExoFromInventoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/exoInfoFragment"
@@ -220,5 +223,14 @@
         <action
             android:id="@+id/action_exoInventoryDetailsFragment_to_exoInventoryFragment"
             app:destination="@id/exoInventoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExoFromInventoryFragment"
+        android:name="com.example.finalgymlog.AddExoFromInventoryFragment"
+        android:label="fragment_add_exo_from_inventory"
+        tools:layout="@layout/fragment_add_exo_from_inventory" >
+        <action
+            android:id="@+id/action_addExoFromInventoryFragment_to_exoListFragment"
+            app:destination="@id/exoListFragment" />
     </fragment>
 </navigation>

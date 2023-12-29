@@ -1,7 +1,6 @@
 package com.example.finalgymlog
 
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,12 +15,8 @@ import com.example.finalgymlog.data.Exo
 import com.example.finalgymlog.data.ExoInventory
 import com.example.finalgymlog.data.ExoInventoryViewModel
 import com.example.finalgymlog.data.ExoViewModel
-import com.example.finalgymlog.data.FridgeFood
-import com.example.finalgymlog.data.Session
-import com.example.finalgymlog.data.SessionViewModel
 import com.example.finalgymlog.data.SharedViewModel
 import com.example.finalgymlog.databinding.FragmentAddExoBinding
-import com.example.finalgymlog.databinding.FragmentAddSessionBinding
 
 
 class AddExoFragment : Fragment() {
@@ -46,7 +41,7 @@ class AddExoFragment : Fragment() {
         var size_of_inventory = 0
 
         mExoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner) {
-            refreshFridgeUI(it)
+            refreshInventoryUI(it)
             size_of_inventory = it.size
             display(STATE, size_of_inventory)
         }
@@ -57,8 +52,8 @@ class AddExoFragment : Fragment() {
             display(STATE, size_of_inventory)
         }
         binding.buttonExistingExo.setOnClickListener {
-            STATE = "fridge"
-            binding.textExoStatus.setText("From Inventory")
+            STATE = "inventory"
+            binding.textExoStatus.setText("Existing Exercises")
             display(STATE, size_of_inventory)
         }
 
@@ -76,10 +71,7 @@ class AddExoFragment : Fragment() {
         val reps = binding.addExoReps.text.toString()
         val comment = binding.addExoComments.text.toString()
         val weights = binding.addExoWeights.text.toString()
-
         val session = sharedViewModel.getCurrentSession().value
-
-
 
         if (name != "") {
             val exo = session?.id?.let { Exo(0, name, reps, weights, comment, it) }
@@ -127,5 +119,10 @@ class AddExoFragment : Fragment() {
             layoutManager = GridLayoutManager(activity?.applicationContext, 2)
             adapter = ExoInventoryListAdapter(inventoryList, null, thisExoFragment)
         }
+    }
+
+    fun onClick(exoinventory: ExoInventory){
+        sharedViewModel.setCurrentExoInventory(exoinventory)
+        findNavController().navigate(R.id.action_addExoFragment_to_addExoFromInventoryFragment)
     }
 }

@@ -18,7 +18,8 @@ import java.io.File
 class ExoInventoryListViewHolder(
     private val exoInventoryListItemBinding: ExoinventoryItemBinding,
     private val context: Context,
-    private val clickListener: ExoInventoryFragment,
+    private val exoInventoryClickListener: ExoInventoryFragment?,
+    private val addExoClickListener: AddExoFragment?,
 ) : RecyclerView.ViewHolder(exoInventoryListItemBinding.root){
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -37,7 +38,11 @@ class ExoInventoryListViewHolder(
         }
 
         exoInventoryListItemBinding.exoListView.setOnClickListener {
-            clickListener.onClick(exo)
+            if(exoInventoryClickListener != null){
+                exoInventoryClickListener.onClick(exo)
+            } else if(addExoClickListener != null){
+                addExoClickListener.onClick(exo)
+            }
         }
 
     }

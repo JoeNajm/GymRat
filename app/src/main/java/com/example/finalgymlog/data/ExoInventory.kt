@@ -8,5 +8,6 @@ data class ExoInventory(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val imagepath: String
+    val imagepath: String,
+    val type: String
 )

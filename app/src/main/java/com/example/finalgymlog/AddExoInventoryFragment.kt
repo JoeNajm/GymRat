@@ -53,6 +53,16 @@ class AddExoInventoryFragment : Fragment() {
         viewmodel = ViewModelProvider(this).get(ExoInventoryViewModel::class.java)
         val root: View = binding.root
 
+        var state = "Upper Body"
+        binding.buttonUpper.setOnClickListener {
+            state = "Upper Body"
+            binding.textAnswerExo.text = state
+        }
+        binding.buttonLower.setOnClickListener {
+            state = "Lower Body"
+            binding.textAnswerExo.text = state
+        }
+
         binding.addImageButton.setOnClickListener {
             val imgIntent = Intent(Intent.ACTION_GET_CONTENT)
             imgIntent.type = "image/*"
@@ -79,7 +89,7 @@ class AddExoInventoryFragment : Fragment() {
 
             val name = binding.addExoName.text.toString()
             if (name != "") {
-                val exo = ExoInventory(0, name, pathOfImage)
+                val exo = ExoInventory(0, name, pathOfImage, state)
                 exo?.let { viewmodel.addExoInventory(it) }
 
                 findNavController().navigate(R.id.action_addExoInventoryFragment_to_exoInventoryFragment)

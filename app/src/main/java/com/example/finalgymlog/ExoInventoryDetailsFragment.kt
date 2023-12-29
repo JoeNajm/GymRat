@@ -55,6 +55,17 @@ class ExoInventoryDetailsFragment : Fragment() {
         binding.exoName.setText(currentExo?.name)
         val PathOfImage = currentExo?.imagepath
 
+        var state = currentExo?.type
+        binding.buttonUpper.setOnClickListener {
+            state = "Upper Body"
+            binding.textAnswerExo.text = state
+        }
+        binding.buttonLower.setOnClickListener {
+            state = "Lower Body"
+            binding.textAnswerExo.text = state
+        }
+        binding.textAnswerExo.text = state
+
         if(PathOfImage!!.contains("drawable", ignoreCase = true)){
             val intId = PathOfImage.substring(11, PathOfImage.length).toInt()
             binding.addImageButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), intId))
@@ -101,7 +112,8 @@ class ExoInventoryDetailsFragment : Fragment() {
             val updatedExoInventory = ExoInventory(
                 currentExo!!.id,
                 name,
-                pathOfImage
+                pathOfImage,
+                state.toString()
             )
             viewModel.updateExoInventory(updatedExoInventory)
             sharedViewModel.setCurrentExoInventory(updatedExoInventory)
