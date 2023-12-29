@@ -11,8 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.finalgymlog.data.Exo
+import com.example.finalgymlog.data.ExoInventory
+import com.example.finalgymlog.data.ExoInventoryViewModel
 import com.example.finalgymlog.data.ExoViewModel
+import com.example.finalgymlog.data.FridgeFood
 import com.example.finalgymlog.data.Session
 import com.example.finalgymlog.data.SessionViewModel
 import com.example.finalgymlog.data.SharedViewModel
@@ -22,6 +26,7 @@ import com.example.finalgymlog.databinding.FragmentAddSessionBinding
 
 class AddExoFragment : Fragment() {
     private lateinit var mExoViewModel: ExoViewModel
+    private val mExoInventoryViewModel: ExoInventoryViewModel by activityViewModels()
     private var _binding: FragmentAddExoBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -36,6 +41,27 @@ class AddExoFragment : Fragment() {
         val root: View = binding.root
 
         mExoViewModel = ViewModelProvider(this).get(ExoViewModel::class.java)
+
+        var STATE = "inventory"
+        var size_of_inventory = 0
+
+        mExoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner) {
+            refreshFridgeUI(it)
+            size_of_inventory = it.size
+            display(STATE, size_of_inventory)
+        }
+
+        binding.buttonNewExo.setOnClickListener {
+            STATE = "new"
+            binding.textExoStatus.setText("New Exo")
+            display(STATE, size_of_inventory)
+        }
+        binding.buttonExistingExo.setOnClickListener {
+            STATE = "fridge"
+            binding.textExoStatus.setText("From Inventory")
+            display(STATE, size_of_inventory)
+        }
+
 
         binding.addBtnExo.setOnClickListener {
             insertDataToDatabase()
@@ -55,7 +81,7 @@ class AddExoFragment : Fragment() {
 
 
 
-        if (inputCheck(name, reps, weights)) {
+        if (name != "") {
             val exo = session?.id?.let { Exo(0, name, reps, weights, comment, it) }
             // Add Data to Database
             exo?.let { mExoViewModel.addExo(it) }
@@ -63,18 +89,43 @@ class AddExoFragment : Fragment() {
             // Navigate back
             findNavController().navigate(R.id.action_addExoFragment_to_exoListFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), "Please fill out all name.", Toast.LENGTH_LONG)
                 .show()
         }
-    }
-
-    private fun inputCheck(name: String, rep: String, weights: String): Boolean {
-        return !(TextUtils.isEmpty(name) && TextUtils.isEmpty(rep) && TextUtils.isEmpty(weights))
     }
 
     override fun onResume() {
         super.onResume()
         // Hide the action bar
         (activity as AppCompatActivity).supportActionBar?.hide()
+    }
+
+    private fun display(state: String, size_inventory: Int){
+
+        if(state == "inventory"){
+            if(size_inventory == 0){
+                binding.emptyInventoryMessage.visibility = View.VISIBLE
+            }else{
+                binding.emptyInventoryMessage.visibility = View.GONE
+            }
+            binding.linearLayoutNewExo.visibility = View.GONE
+            binding.addBtnExo.visibility = View.GONE
+            binding.recyclerViewExo.visibility = View.VISIBLE
+        } else if(state == "new"){
+            binding.emptyInventoryMessage.visibility = View.GONE
+            binding.linearLayoutNewExo.visibility = View.VISIBLE
+            binding.addBtnExo.visibility = View.VISIBLE
+            binding.recyclerViewExo.visibility = View.GONE
+        }
+    }
+
+    private fun refreshInventoryUI(inventoryList: List<ExoInventory>) {
+
+        val thisExoFragment = this
+
+        binding.recyclerViewExo.apply {
+            layoutManager = GridLayoutManager(activity?.applicationContext, 2)
+            adapter = ExoInventoryListAdapter(inventoryList, null, thisExoFragment)
+        }
     }
 }

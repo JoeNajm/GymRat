@@ -91,9 +91,12 @@ class StatisticsFragment : Fragment() {
         var dates = arrayOf<String>()
         var data = arrayOf<Double>()
 
+        println("All Sessions: ")
+        println(session!!.reversed())
+
         if(STATE == "ten_days"){
             var j_idx = 0
-            for (i in session!!.take(10).reversed()) {
+            for (i in session) {
                 if (i.body_weight!!.toDouble() != 0.0) {
                     if (j_idx < 10){
                         data += i.body_weight.toDouble()
@@ -102,6 +105,10 @@ class StatisticsFragment : Fragment() {
                     }
                 }
             }
+            data = data.reversed().toTypedArray()
+            dates = dates.reversed().toTypedArray()
+            println("Last 10 days :")
+            println(data)
         }
         else if(STATE == "all_days"){
             for (i in session!!.reversed()) {

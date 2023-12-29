@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_sessionListFragment_to_fridgeFragment"
             app:destination="@id/fridgeFragment" />
+        <action
+            android:id="@+id/action_sessionListFragment_to_exoInventoryFragment"
+            app:destination="@id/exoInventoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSessionFragment"
@@ -184,5 +187,38 @@
         <action
             android:id="@+id/action_fridgeFoodInfoFragment_to_fridgeFragment"
             app:destination="@id/fridgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exoInventoryFragment"
+        android:name="com.example.finalgymlog.ExoInventoryFragment"
+        android:label="fragment_exo_inventory"
+        tools:layout="@layout/fragment_exo_inventory" >
+        <action
+            android:id="@+id/action_exoInventoryFragment_to_sessionListFragment"
+            app:destination="@id/sessionListFragment" />
+        <action
+            android:id="@+id/action_exoInventoryFragment_to_addExoInventoryFragment"
+            app:destination="@id/addExoInventoryFragment" />
+        <action
+            android:id="@+id/action_exoInventoryFragment_to_exoInventoryDetailsFragment"
+            app:destination="@id/exoInventoryDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExoInventoryFragment"
+        android:name="com.example.finalgymlog.AddExoInventoryFragment"
+        android:label="fragment_add_exo_inventory"
+        tools:layout="@layout/fragment_add_exo_inventory" >
+        <action
+            android:id="@+id/action_addExoInventoryFragment_to_exoInventoryFragment"
+            app:destination="@id/exoInventoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exoInventoryDetailsFragment"
+        android:name="com.example.finalgymlog.ExoInventoryDetailsFragment"
+        android:label="fragment_exo_inventory_details"
+        tools:layout="@layout/fragment_exo_inventory_details" >
+        <action
+            android:id="@+id/action_exoInventoryDetailsFragment_to_exoInventoryFragment"
+            app:destination="@id/exoInventoryFragment" />
     </fragment>
 </navigation>

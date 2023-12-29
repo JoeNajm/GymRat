@@ -86,3 +86,19 @@ interface FridgeFoodDao {
     @Delete
     suspend fun deleteFridgeFood(fridgefood: FridgeFood)
 }
+
+@Dao
+interface ExoInventoryDao {
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addExoInventory(exoinventory: ExoInventory)
+
+    @Query("SELECT * FROM exoinventory_table ORDER BY id ASC")
+    fun readAllExoInventory(): LiveData<List<ExoInventory>>
+
+    @Update
+    suspend fun updateExoInventory(exoinventory: ExoInventory)
+
+    @Delete
+    suspend fun deleteExoInventory(exoinventory: ExoInventory)
+}

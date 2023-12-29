@@ -52,10 +52,12 @@ class AddFoodFragment : Fragment() {
 
         binding.buttonNewFood.setOnClickListener {
             STATE = "new"
+            binding.textFoodStatus.setText("New Food")
             display(STATE, size_of_fridge)
         }
         binding.buttonExistingFood.setOnClickListener {
             STATE = "fridge"
+            binding.textFoodStatus.setText("From Fridge")
             display(STATE, size_of_fridge)
         }
 

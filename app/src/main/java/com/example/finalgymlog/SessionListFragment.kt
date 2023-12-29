@@ -88,6 +88,10 @@ class SessionListFragment : Fragment() {
             findNavController().navigate(R.id.action_sessionListFragment_to_fridgeFragment)
         }
 
+        binding.buttonAddExo.setOnClickListener {
+            findNavController().navigate(R.id.action_sessionListFragment_to_exoInventoryFragment)
+        }
+
         return root
     }
 

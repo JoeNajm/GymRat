@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalgymlog.data.Exo
-import com.example.finalgymlog.data.Session
+import com.example.finalgymlog.data.ExoInventory
 import com.example.finalgymlog.databinding.ExoItemBinding
-import com.example.finalgymlog.databinding.SessionItemBinding
 
 class ExoListAdapter(
     private var exoList: List<Exo>,
-//    private val context: Context,
-    private val clickListener: ExoListFragment
+    private val clickListener: ExoListFragment,
+    private var savedExoList: List<ExoInventory>?,
 ) : RecyclerView.Adapter<ExoListViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExoListViewHolder {
@@ -21,7 +20,7 @@ class ExoListAdapter(
     }
 
     override fun onBindViewHolder(holder: ExoListViewHolder, position: Int) {
-        holder.bindItem(exoList[position])
+        holder.bindItem(exoList[position], savedExoList)
     }
 
     override fun getItemCount(): Int = exoList.size

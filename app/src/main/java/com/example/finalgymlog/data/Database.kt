@@ -127,3 +127,31 @@ abstract class FridgeFoodDatabase: RoomDatabase() {
         }
     }
 }
+
+
+@Database(entities = [ExoInventory::class], version = 1, exportSchema = false)
+abstract class ExoInventoryDatabase: RoomDatabase() {
+
+    abstract fun exoinventoryDao(): ExoInventoryDao
+
+    companion object {
+        @Volatile
+        private var INSTANCE:ExoInventoryDatabase? = null
+
+        fun getDatabase(context: Context):ExoInventoryDatabase{
+            val tempInstance = INSTANCE
+            if (tempInstance != null) {
+                return tempInstance
+            }
+            synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    ExoInventoryDatabase::class.java,
+                    "exoinventory_database"
+                ).build()
+                INSTANCE = instance
+                return instance
+            }
+        }
+    }
+}

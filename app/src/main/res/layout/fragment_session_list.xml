@@ -23,7 +23,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_user"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="500dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +42,21 @@
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_add_exo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bc_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/baseline_auto_stories_24"
+        android:visibility="visible"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/button_general_info"

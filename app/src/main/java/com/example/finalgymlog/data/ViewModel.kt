@@ -140,10 +140,41 @@ class FridgeFoodViewModel(application: Application) : AndroidViewModel(applicati
     }
 }
 
+class ExoInventoryViewModel(application: Application) : AndroidViewModel(application) {
+    val readAllExoInventory: LiveData<List<ExoInventory>>
+    private val repository: ExoInventoryRepository
+
+    init {
+        val exoinventoryDao = ExoInventoryDatabase.getDatabase(application).exoinventoryDao()
+        repository = ExoInventoryRepository(exoinventoryDao)
+        readAllExoInventory = repository.readAllexoinventory
+    }
+
+    fun addExoInventory(exoinventory: ExoInventory) {
+        viewModelScope.launch(Dispatchers.IO){
+            repository.addExoInventory(exoinventory)
+        }
+    }
+
+    fun updateExoInventory(exoinventory: ExoInventory) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateExoInventory(exoinventory)
+        }
+    }
+
+    fun deleteExoInventory(exoinventory: ExoInventory) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteExoInventory(exoinventory)
+        }
+    }
+}
+
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
     private val currentExo = MutableLiveData<Exo>()
     private val currentSession = MutableLiveData<Session>()
     private val currentFridgeFood = MutableLiveData<FridgeFood>()
+    private val currentExoInventory = MutableLiveData<ExoInventory>()
+    private val exoInventoryList = MutableLiveData<List<ExoInventory>>()
 
     fun setCurrentExo(input: Exo) {
         currentExo.value = input
@@ -167,5 +198,21 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
     fun getCurrentFridgeFood(): LiveData<FridgeFood> {
         return currentFridgeFood
+    }
+
+    fun setCurrentExoInventory(input: ExoInventory) {
+        currentExoInventory.value = input
+    }
+
+    fun getCurrentExoInventory(): LiveData<ExoInventory> {
+        return currentExoInventory
+    }
+
+    fun setCurrentExoInventoryList(input: List<ExoInventory>) {
+        exoInventoryList.value = input
+    }
+
+    fun getCurrentExoInventoryList(): LiveData<List<ExoInventory>> {
+        return exoInventoryList
     }
 }

@@ -1,15 +1,19 @@
 package com.example.finalgymlog
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.finalgymlog.data.Exo
+import com.example.finalgymlog.data.ExoInventory
+import com.example.finalgymlog.data.ExoInventoryViewModel
 import com.example.finalgymlog.data.ExoViewModel
 import com.example.finalgymlog.data.Session
 import com.example.finalgymlog.data.SessionViewModel
@@ -17,6 +21,7 @@ import com.example.finalgymlog.data.SharedViewModel
 import com.example.finalgymlog.databinding.FragmentExoInfoBinding
 import com.example.finalgymlog.databinding.FragmentExoListBinding
 import com.example.finalgymlog.databinding.FragmentSessionListBinding
+import java.io.File
 
 
 class ExoInfoFragment : Fragment() {
@@ -25,7 +30,7 @@ class ExoInfoFragment : Fragment() {
     private var _binding: FragmentExoInfoBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel: SharedViewModel by activityViewModels()
-
+    private val exoInventoryViewModel: ExoInventoryViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,32 +47,32 @@ class ExoInfoFragment : Fragment() {
         binding.exoReps.setText(currentExo?.reps)
         binding.exoWeights.setText(currentExo?.weights)
 
-        if("abs" in currentExo?.name!!.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.abs)
+        //TODO: INSTEAD OF OBSERVER, GIVE PATH IN SHAREDVIEWMODEL... OR JUST REMOVE IMAGE ;)
+
+        val savedExo = sharedViewModel.getCurrentExoInventoryList()
+
+        println("savedExoList: $savedExo")
+        val name = currentExo!!.name.lowercase()
+        var found = false
+        for(e in savedExo.value!!)
+            if(name in e.name.lowercase()){
+            found = true
+            if(e.imagepath.contains("drawable", ignoreCase = true)){
+                val PathOfImage = e.imagepath
+                val intId = PathOfImage.substring(11, PathOfImage.length).toInt()
+                binding.exoImage.setImageDrawable(context?.let {
+                    ContextCompat.getDrawable(
+                        it, intId)
+                })
+            } else{
+                val PathOfImage = e.imagepath
+                val file = File(requireContext().filesDir, PathOfImage)
+                val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+                binding.exoImage.setImageBitmap(bitmap)
+            }
         }
-        else if("bench" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.bench)
-        }
-        else if("calves" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.calves)
-        }
-        else if("running" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.running)
-        }
-        else if("cardio" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.running)
-        }
-        else if("pull up" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.pullups)
-        }
-        else if("tricep" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.triceps)
-        }
-        else if("bicep" in currentExo.name.lowercase()){
-            binding.exoImage.setImageResource(R.drawable.dumbbell)
-        }
-        else {
-            binding.exoImage.setImageResource(R.drawable.rat)
+        if(found == false){
+            binding.exoImage.setImageDrawable(context?.let { ContextCompat.getDrawable(it, R.drawable.rat) })
         }
 
         binding.buttonBackExo.setOnClickListener{

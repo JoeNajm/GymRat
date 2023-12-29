@@ -1,15 +1,15 @@
 package com.example.finalgymlog
 
 import android.content.Context
-import android.graphics.drawable.Drawable
+import android.graphics.BitmapFactory
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalgymlog.data.Exo
-import com.example.finalgymlog.data.Session
+import com.example.finalgymlog.data.ExoInventory
 import com.example.finalgymlog.databinding.ExoItemBinding
-import com.example.finalgymlog.databinding.SessionItemBinding
+import java.io.File
 
 class ExoListViewHolder(
     private val exoListItemBinding: ExoItemBinding,
@@ -18,7 +18,7 @@ class ExoListViewHolder(
 ) : RecyclerView.ViewHolder(exoListItemBinding.root){
 
     @RequiresApi(Build.VERSION_CODES.N)
-    fun bindItem(exo: Exo){
+    fun bindItem(exo: Exo, savedExoList: List<ExoInventory>?){
         exoListItemBinding.exoName.text = exo.name
         if (exo.name.lowercase() != "running" && exo.name.lowercase() != "cardio"){
             exoListItemBinding.exoReps.text = "Reps: " + exo.reps
@@ -30,37 +30,31 @@ class ExoListViewHolder(
             exoListItemBinding.exoWeights.text = "Speed: " + exo.weights
         }
 
-        val drawable_img: Drawable?
-
-        if("abs" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.abs)
+        if(savedExoList != null){
+            val name = exo.name.lowercase()
+            var found = false
+            for(e in savedExoList!!){
+                println(e.name.lowercase())
+                if(name in e.name.lowercase()){
+                    found = true
+                    if(e.imagepath.contains("drawable", ignoreCase = true)){
+                        val PathOfImage = e.imagepath
+                        val intId = PathOfImage.substring(11, PathOfImage.length).toInt()
+                        exoListItemBinding.exoImage.setImageDrawable(ContextCompat.getDrawable(context, intId))
+                    } else{
+                        val PathOfImage = e.imagepath
+                        val file = File(context.filesDir, PathOfImage)
+                        val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+                        exoListItemBinding.exoImage.setImageBitmap(bitmap)
+                    }
+                }
+            }
+            if(found == false){
+                exoListItemBinding.exoImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.rat))
+            }
+        } else{
+            exoListItemBinding.exoImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.rat))
         }
-        else if("bench" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.bench)
-        }
-        else if("calves" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.calves)
-        }
-        else if("pull up" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.pullups)
-        }
-        else if("running" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.running)
-        }
-        else if("cardio" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.running)
-        }
-        else if("tricep" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.triceps)
-        }
-        else if("bicep" in exo.name.lowercase()){
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.dumbbell)
-        }
-        else {
-            drawable_img = ContextCompat.getDrawable(context, R.drawable.rat)
-        }
-        exoListItemBinding.exoImage.setImageDrawable(drawable_img)
-
 
         exoListItemBinding.exoListView.setOnClickListener {
             clickListener.onClick(exo)

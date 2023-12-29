@@ -41,6 +41,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/text_food_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From Fridge"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_existing_food" />
+
     <TextView
         android:id="@+id/emtpy_fridge_message"
         android:layout_width="wrap_content"
@@ -54,16 +69,16 @@
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_food"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="30dp"
+        android:visibility="visible"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/button_existing_food" />
-
+        app:layout_constraintTop_toBottomOf="@+id/text_food_status" />
 
     <LinearLayout
         android:id="@+id/linearLayout_new_food"

@@ -82,3 +82,20 @@ class FridgeFoodRepository(private val fridgefoodDao: FridgeFoodDao) {
         fridgefoodDao.deleteFridgeFood(fridgefood)
     }
 }
+
+
+class ExoInventoryRepository(private val exoinventoryDao: ExoInventoryDao) {
+    val readAllexoinventory:  LiveData<List<ExoInventory>> = exoinventoryDao.readAllExoInventory()
+
+    suspend fun addExoInventory(exoinventory: ExoInventory) {
+        exoinventoryDao.addExoInventory(exoinventory)
+    }
+
+    suspend fun updateExoInventory(exoinventory: ExoInventory) {
+        exoinventoryDao.updateExoInventory(exoinventory)
+    }
+
+    suspend fun deleteExoInventory(exoinventory: ExoInventory){
+        exoinventoryDao.deleteExoInventory(exoinventory)
+    }
+}
