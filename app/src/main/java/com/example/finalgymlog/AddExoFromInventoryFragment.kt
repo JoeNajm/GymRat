@@ -53,6 +53,11 @@ class AddExoFromInventoryFragment : Fragment() {
             binding.exoImage.setImageBitmap(bitmap)
         }
 
+        if(currentExo.name.lowercase() == "cardio"){
+            binding.exoReps.setHint("Distance")
+            binding.exoWeights.setHint("Speed")
+        }
+
         binding.btnExo.setOnClickListener {
             if(binding.exoName.text.toString() != ""){
                 val session = sharedViewModel.getCurrentSession().value

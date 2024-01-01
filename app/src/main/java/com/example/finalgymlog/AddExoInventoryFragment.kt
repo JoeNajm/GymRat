@@ -57,10 +57,24 @@ class AddExoInventoryFragment : Fragment() {
         binding.buttonUpper.setOnClickListener {
             state = "Upper Body"
             binding.textAnswerExo.text = state
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
         }
         binding.buttonLower.setOnClickListener {
-            state = "Lower Body"
+            state = "Legs"
             binding.textAnswerExo.text = state
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+        }
+
+        binding.buttonOther.setOnClickListener {
+            state = "Other"
+            binding.textAnswerExo.text = state
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
         }
 
         binding.addImageButton.setOnClickListener {

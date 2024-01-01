@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_exo_name">
@@ -85,7 +85,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/linearLayout_exo_type_buttons"
             android:orientation="horizontal">
 
@@ -94,16 +94,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Upper Body"
-                android:layout_marginStart="20dp">
+                android:background="@color/green"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_marginStart="45dp">
             </Button>
 
             <Button
                 android:id="@+id/button_lower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="110dp"
-                android:text="Lower Body">
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:background="@color/red"
+                android:text="Legs">
+            </Button>
 
+            <Button
+                android:id="@+id/button_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:background="@color/red"
+                android:text="Other">
             </Button>
 
         </LinearLayout>

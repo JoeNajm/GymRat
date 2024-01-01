@@ -24,6 +24,7 @@ import java.text.ParsePosition
 import java.util.Arrays
 
 
+@Suppress("DEPRECATION")
 class StatisticsFragment : Fragment() {
 
     private var _binding: FragmentStatisticsBinding? = null
@@ -65,11 +66,15 @@ class StatisticsFragment : Fragment() {
         }
         binding.buttonAllDays.setOnClickListener {
             binding.textMode.setText("All days")
+            binding.buttonAllDays.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonTenDays.setBackgroundColor(resources.getColor(R.color.red))
             STATE = "all_days"
             plot_graph(STATE, session)
         }
         binding.buttonTenDays.setOnClickListener {
             binding.textMode.setText("Last 10 days")
+            binding.buttonAllDays.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonTenDays.setBackgroundColor(resources.getColor(R.color.green))
             STATE = "ten_days"
             plot_graph(STATE, session)
         }

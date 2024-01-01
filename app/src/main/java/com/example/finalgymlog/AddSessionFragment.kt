@@ -38,6 +38,26 @@ class AddSessionFragment : Fragment() {
         mSessionViewModel = ViewModelProvider(this).get(SessionViewModel::class.java)
 
 
+        binding.buttonUpper.setOnClickListener {
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+            binding.addSessionName.setText("Upper Body")
+        }
+
+        binding.buttonLower.setOnClickListener {
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+            binding.addSessionName.setText("Legs")
+        }
+
+        binding.buttonOther.setOnClickListener {
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.addSessionName.setText("")
+        }
 
         binding.addBtn.setOnClickListener {
             val formattedDate = getCurrentDateFormatted()

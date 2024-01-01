@@ -101,4 +101,7 @@ interface ExoInventoryDao {
 
     @Delete
     suspend fun deleteExoInventory(exoinventory: ExoInventory)
+
+    @Query("SELECT * FROM exoinventory_table WHERE type = :type ORDER BY id ASC")
+    fun readExoByType(type: String): LiveData<List<ExoInventory>>
 }

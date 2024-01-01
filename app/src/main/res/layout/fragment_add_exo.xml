@@ -28,6 +28,9 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="Existing Exo"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="@color/green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_intro_add_Exo" />
 
@@ -38,6 +41,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:text="New Exo"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_intro_add_Exo" />
 
@@ -124,10 +130,11 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:visibility="visible"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
+        app:layout_constraintTop_toBottomOf="@+id/button_lower_exos" />
+
     <TextView
         android:id="@+id/empty_inventory_message"
         android:layout_width="wrap_content"
@@ -140,4 +147,48 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_upper_exos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Upper Body"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="@color/green"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
+
+    <Button
+        android:id="@+id/button_lower_exos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Legs"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/button_all_exos"
+        app:layout_constraintStart_toEndOf="@+id/button_upper_exos"
+        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
+
+    <Button
+        android:id="@+id/button_all_exos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="All"
+        android:visibility="visible"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

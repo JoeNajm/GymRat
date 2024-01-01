@@ -55,13 +55,41 @@ class ExoInventoryDetailsFragment : Fragment() {
         binding.exoName.setText(currentExo?.name)
         val PathOfImage = currentExo?.imagepath
 
-        var state = currentExo?.type
+        if(currentExo!!.type == "Upper Body"){
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+        } else if(currentExo.type == "Legs"){
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+        } else {
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        var state = currentExo.type
         binding.buttonUpper.setOnClickListener {
             state = "Upper Body"
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
             binding.textAnswerExo.text = state
         }
         binding.buttonLower.setOnClickListener {
-            state = "Lower Body"
+            state = "Legs"
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+            binding.textAnswerExo.text = state
+        }
+
+        binding.buttonOther.setOnClickListener {
+            state = "Other"
+            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
             binding.textAnswerExo.text = state
         }
         binding.textAnswerExo.text = state

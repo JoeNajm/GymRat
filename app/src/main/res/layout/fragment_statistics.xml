@@ -67,6 +67,9 @@
         app:layout_constraintStart_toStartOf="parent"
         android:text="Last 10 days"
         android:layout_marginBottom="25dp"
+        android:background="@color/green"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_marginStart="25dp" />
 
     <Button
@@ -77,6 +80,9 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/red"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView

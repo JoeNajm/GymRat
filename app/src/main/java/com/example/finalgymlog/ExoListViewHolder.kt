@@ -20,6 +20,7 @@ class ExoListViewHolder(
     @RequiresApi(Build.VERSION_CODES.N)
     fun bindItem(exo: Exo, savedExoList: List<ExoInventory>?){
         exoListItemBinding.exoName.text = exo.name
+        println(exo.name.lowercase() + " qwerr")
         if (exo.name.lowercase() != "running" && exo.name.lowercase() != "cardio"){
             exoListItemBinding.exoReps.text = "Reps: " + exo.reps
             exoListItemBinding.exoWeights.text = "kg: " + exo.weights

@@ -167,6 +167,10 @@ class ExoInventoryViewModel(application: Application) : AndroidViewModel(applica
             repository.deleteExoInventory(exoinventory)
         }
     }
+
+    fun readExoByType(type: String): LiveData<List<ExoInventory>> {
+        return repository.readExoByType(type)
+    }
 }
 
 class SharedViewModel(application: Application) : AndroidViewModel(application) {

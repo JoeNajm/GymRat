@@ -12,6 +12,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.finalgymlog.data.ExoInventory
+import com.example.finalgymlog.data.ExoInventoryViewModel
 import com.example.finalgymlog.data.ExoViewModel
 import com.example.finalgymlog.data.Session
 import com.example.finalgymlog.data.SessionViewModel
@@ -22,7 +24,7 @@ import com.example.finalgymlog.databinding.FragmentSessionListBinding
 class SessionListFragment : Fragment() {
 
     private val viewModel: SessionViewModel by activityViewModels()
-    private val exoviewModel: ExoViewModel by activityViewModels()
+    private val exoInventoryViewModel: ExoInventoryViewModel by activityViewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private var _binding: FragmentSessionListBinding? = null
     private val binding get() = _binding!!
@@ -79,6 +81,12 @@ class SessionListFragment : Fragment() {
             Toast.makeText(requireContext(), "Successfully switched to male profile", Toast.LENGTH_LONG)
                 .show()
         }
+        exoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner, {
+            if(it.isEmpty()){
+                // TODO: If user deletes all data, then not initialize again ...
+                initializeExoInventory()
+            }
+        })
 
         binding.buttonStats.setOnClickListener {
             findNavController().navigate(R.id.action_sessionListFragment_to_statisticsFragment)
@@ -121,4 +129,47 @@ class SessionListFragment : Fragment() {
         // Hide the action bar
         (activity as AppCompatActivity).supportActionBar?.hide()
     }
+
+    private fun initializeExoInventory(){
+        val exo1 = ExoInventory(0, "Bench press", "drawable://"+R.drawable.bench, "Upper Body")
+        exo1.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo10 = ExoInventory(0, "Inclined Bench press", "drawable://"+R.drawable.inclinebenchpresspng, "Upper Body")
+        exo10.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo2 = ExoInventory(0, "Abs", "drawable://"+R.drawable.abs, "Upper Body")
+        exo2.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo5 = ExoInventory(0, "Biceps curls", "drawable://"+R.drawable.dumbbell, "Upper Body")
+        exo5.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo9 = ExoInventory(0, "Biceps hammers", "drawable://"+R.drawable.dumbbell, "Upper Body")
+        exo9.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo7 = ExoInventory(0, "Cardio", "drawable://"+R.drawable.running, "Legs")
+        exo7.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo8 = ExoInventory(0, "Triceps cord", "drawable://"+R.drawable.triceps, "Upper Body")
+        exo8.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo11 = ExoInventory(0, "Leg press", "drawable://"+R.drawable.legpress, "Legs")
+        exo11.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo12 = ExoInventory(0, "Leg extension", "drawable://"+R.drawable.legextension, "Legs")
+        exo12.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo13 = ExoInventory(0, "Leg curl", "drawable://"+R.drawable.legcurl, "Legs")
+        exo13.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo3 = ExoInventory(0, "Standing calves", "drawable://"+R.drawable.calves, "Legs")
+        exo3.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo4 = ExoInventory(0, "Sitting calves", "drawable://"+R.drawable.calves, "Legs")
+        exo4.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo17 = ExoInventory(0, "Squats", "drawable://"+R.drawable.squats, "Legs")
+        exo17.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo18 = ExoInventory(0, "Bulgrian split squats", "drawable://"+R.drawable.bulgarian, "Legs")
+        exo18.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo14 = ExoInventory(0, "Lat pulldown", "drawable://"+R.drawable.latpulldown, "Upper Body")
+        exo14.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo15 = ExoInventory(0, "Seated row", "drawable://"+R.drawable.cablerow, "Upper Body")
+        exo15.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo16 = ExoInventory(0, "Deadlift", "drawable://"+R.drawable.deadlift, "Upper Body")
+        exo16.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo6 = ExoInventory(0, "Pull ups", "drawable://"+R.drawable.pullups, "Upper Body")
+        exo6.let { exoInventoryViewModel.addExoInventory(it) }
+        val exo19 = ExoInventory(0, "Shoulder press", "drawable://"+R.drawable.shoulderpress, "Upper Body")
+        exo19.let { exoInventoryViewModel.addExoInventory(it) }
+
+    }
+
 }

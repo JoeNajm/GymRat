@@ -98,4 +98,8 @@ class ExoInventoryRepository(private val exoinventoryDao: ExoInventoryDao) {
     suspend fun deleteExoInventory(exoinventory: ExoInventory){
         exoinventoryDao.deleteExoInventory(exoinventory)
     }
+
+    fun readExoByType(type: String): LiveData<List<ExoInventory>> {
+        return exoinventoryDao.readExoByType(type)
+    }
 }

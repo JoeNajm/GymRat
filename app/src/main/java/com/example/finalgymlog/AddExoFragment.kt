@@ -37,24 +37,99 @@ class AddExoFragment : Fragment() {
 
         mExoViewModel = ViewModelProvider(this).get(ExoViewModel::class.java)
 
+        val currentSession = sharedViewModel.getCurrentSession().value
+
         var STATE = "inventory"
         var size_of_inventory = 0
 
-        mExoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner) {
-            refreshInventoryUI(it)
-            size_of_inventory = it.size
-            display(STATE, size_of_inventory)
+        if("upper" in currentSession!!.name.lowercase()){
+            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.red))
+
+            mExoInventoryViewModel.readExoByType("Upper Body").observe(viewLifecycleOwner) {
+                refreshInventoryUI(it)
+                size_of_inventory = it.size
+                display(STATE, size_of_inventory)
+            }
+        } else if("leg" in currentSession.name.lowercase()){
+            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.red))
+
+            mExoInventoryViewModel.readExoByType("Legs").observe(viewLifecycleOwner) {
+                refreshInventoryUI(it)
+                size_of_inventory = it.size
+                display(STATE, size_of_inventory)
+            }
+        } else{
+            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.green))
+
+            mExoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner) {
+                refreshInventoryUI(it)
+                size_of_inventory = it.size
+                display(STATE, size_of_inventory)
+            }
         }
+
 
         binding.buttonNewExo.setOnClickListener {
             STATE = "new"
+            binding.buttonNewExo.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonExistingExo.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLowerExos.visibility = View.GONE
+            binding.buttonUpperExos.visibility = View.GONE
+            binding.buttonAllExos.visibility = View.GONE
             binding.textExoStatus.setText("New Exo")
             display(STATE, size_of_inventory)
         }
         binding.buttonExistingExo.setOnClickListener {
             STATE = "inventory"
+            binding.buttonNewExo.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonExistingExo.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLowerExos.visibility = View.VISIBLE
+            binding.buttonUpperExos.visibility = View.VISIBLE
+            binding.buttonAllExos.visibility = View.VISIBLE
             binding.textExoStatus.setText("Existing Exercises")
             display(STATE, size_of_inventory)
+        }
+
+        binding.buttonUpperExos.setOnClickListener {
+            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.red))
+
+            mExoInventoryViewModel.readExoByType("Upper Body").observe(viewLifecycleOwner) {
+                refreshInventoryUI(it)
+                size_of_inventory = it.size
+                display(STATE, size_of_inventory)
+            }
+        }
+
+        binding.buttonLowerExos.setOnClickListener {
+            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.red))
+
+            mExoInventoryViewModel.readExoByType("Legs").observe(viewLifecycleOwner) {
+                refreshInventoryUI(it)
+                size_of_inventory = it.size
+                display(STATE, size_of_inventory)
+            }
+        }
+
+        binding.buttonAllExos.setOnClickListener {
+            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.green))
+
+            mExoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner) {
+                refreshInventoryUI(it)
+                size_of_inventory = it.size
+                display(STATE, size_of_inventory)
+            }
         }
 
 

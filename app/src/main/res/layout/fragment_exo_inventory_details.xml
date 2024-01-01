@@ -88,15 +88,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Upper Body"
-                android:layout_marginStart="20dp">
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@color/green"
+                android:layout_marginStart="45dp">
             </Button>
 
             <Button
                 android:id="@+id/button_lower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="110dp"
-                android:text="Lower Body">
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@color/red"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Legs">
+            </Button>
+
+            <Button
+                android:id="@+id/button_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Other">
 
             </Button>
 
@@ -157,7 +175,7 @@
         android:id="@+id/button_delete_sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:width="200dp"
         android:background="@color/red"
         android:text="Are you sure ?"
