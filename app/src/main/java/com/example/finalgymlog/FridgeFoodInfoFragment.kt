@@ -74,7 +74,7 @@ class FridgeFoodInfoFragment : Fragment() {
 
             binding.buttonDeleteTrash.setVisibility(View.VISIBLE)
             binding.buttonDeleteSure.setVisibility(View.GONE)
-            findNavController().navigate(R.id.action_sessionInfoFragment_to_sessionListFragment)
+            findNavController().navigate(R.id.action_fridgeFoodInfoFragment_to_fridgeFragment)
         }
 
         return root

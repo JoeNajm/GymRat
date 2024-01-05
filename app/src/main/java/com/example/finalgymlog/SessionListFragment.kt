@@ -131,19 +131,19 @@ class SessionListFragment : Fragment() {
     }
 
     private fun initializeExoInventory(){
-        val exo1 = ExoInventory(0, "Bench press", "drawable://"+R.drawable.bench, "Upper Body")
+        val exo1 = ExoInventory(0, "Bench press", "drawable://"+R.drawable.bench, "Chest")
         exo1.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo10 = ExoInventory(0, "Inclined Bench press", "drawable://"+R.drawable.inclinebenchpresspng, "Upper Body")
+        val exo10 = ExoInventory(0, "Inclined Bench press", "drawable://"+R.drawable.inclinebenchpresspng, "Chest")
         exo10.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo2 = ExoInventory(0, "Abs", "drawable://"+R.drawable.abs, "Upper Body")
+        val exo2 = ExoInventory(0, "Situps", "drawable://"+R.drawable.situps, "Core")
         exo2.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo5 = ExoInventory(0, "Biceps curls", "drawable://"+R.drawable.dumbbell, "Upper Body")
+        val exo5 = ExoInventory(0, "Biceps curls", "drawable://"+R.drawable.dumbbell, "Arms")
         exo5.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo9 = ExoInventory(0, "Biceps hammers", "drawable://"+R.drawable.dumbbell, "Upper Body")
+        val exo9 = ExoInventory(0, "Biceps hammers", "drawable://"+R.drawable.dumbbell, "Arms")
         exo9.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo7 = ExoInventory(0, "Cardio", "drawable://"+R.drawable.running, "Legs")
+        val exo7 = ExoInventory(0, "Running", "drawable://"+R.drawable.running, "Cardio")
         exo7.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo8 = ExoInventory(0, "Triceps cord", "drawable://"+R.drawable.triceps, "Upper Body")
+        val exo8 = ExoInventory(0, "Triceps cord", "drawable://"+R.drawable.triceps, "Arms")
         exo8.let { exoInventoryViewModel.addExoInventory(it) }
         val exo11 = ExoInventory(0, "Leg press", "drawable://"+R.drawable.legpress, "Legs")
         exo11.let { exoInventoryViewModel.addExoInventory(it) }
@@ -159,15 +159,15 @@ class SessionListFragment : Fragment() {
         exo17.let { exoInventoryViewModel.addExoInventory(it) }
         val exo18 = ExoInventory(0, "Bulgrian split squats", "drawable://"+R.drawable.bulgarian, "Legs")
         exo18.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo14 = ExoInventory(0, "Lat pulldown", "drawable://"+R.drawable.latpulldown, "Upper Body")
+        val exo14 = ExoInventory(0, "Lat pulldown", "drawable://"+R.drawable.latpulldown, "Back")
         exo14.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo15 = ExoInventory(0, "Seated row", "drawable://"+R.drawable.cablerow, "Upper Body")
+        val exo15 = ExoInventory(0, "Seated row", "drawable://"+R.drawable.cablerow, "Back")
         exo15.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo16 = ExoInventory(0, "Deadlift", "drawable://"+R.drawable.deadlift, "Upper Body")
+        val exo16 = ExoInventory(0, "Deadlift", "drawable://"+R.drawable.deadlift, "Back")
         exo16.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo6 = ExoInventory(0, "Pull ups", "drawable://"+R.drawable.pullups, "Upper Body")
+        val exo6 = ExoInventory(0, "Pull ups", "drawable://"+R.drawable.pullups, "Back")
         exo6.let { exoInventoryViewModel.addExoInventory(it) }
-        val exo19 = ExoInventory(0, "Shoulder press", "drawable://"+R.drawable.shoulderpress, "Upper Body")
+        val exo19 = ExoInventory(0, "Shoulder press", "drawable://"+R.drawable.shoulderpress, "Shoulders")
         exo19.let { exoInventoryViewModel.addExoInventory(it) }
 
     }

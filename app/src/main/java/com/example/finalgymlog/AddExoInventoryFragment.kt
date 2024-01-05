@@ -53,27 +53,60 @@ class AddExoInventoryFragment : Fragment() {
         viewmodel = ViewModelProvider(this).get(ExoInventoryViewModel::class.java)
         val root: View = binding.root
 
-        var state = "Upper Body"
-        binding.buttonUpper.setOnClickListener {
-            state = "Upper Body"
+        var state = "Chest"
+        binding.buttonChest.setOnClickListener {
+            state = "Chest"
             binding.textAnswerExo.text = state
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+            setAllButtonsRed()
+            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
         }
+
+        binding.buttonBack.setOnClickListener {
+            state = "Back"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonShoulders.setOnClickListener {
+            state = "Shoulders"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonCardio.setOnClickListener {
+            state = "Cardio"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonArms.setOnClickListener {
+            state = "Arms"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonCore.setOnClickListener {
+            state = "Core"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
         binding.buttonLower.setOnClickListener {
             state = "Legs"
             binding.textAnswerExo.text = state
+            setAllButtonsRed()
             binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
         }
 
         binding.buttonOther.setOnClickListener {
             state = "Other"
             binding.textAnswerExo.text = state
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            setAllButtonsRed()
             binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
         }
 
@@ -189,6 +222,17 @@ class AddExoInventoryFragment : Fragment() {
         fileOutputStream.flush()
         fileOutputStream.close()
         return Uri.fromFile(file)
+    }
+
+    private fun setAllButtonsRed(){
+        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonCore.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
     }
 
 }

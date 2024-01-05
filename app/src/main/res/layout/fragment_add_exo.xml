@@ -128,9 +128,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_exo"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:visibility="visible"
+        android:layout_height="0dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_lower_exos" />

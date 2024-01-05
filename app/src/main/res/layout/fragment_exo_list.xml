@@ -53,7 +53,7 @@
         android:id="@+id/button_back_exo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/bc_white"
+        android:background="@null"
         android:src="@drawable/baseline_arrow_back_24"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
@@ -63,10 +63,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_exo"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_food"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toBottomOf="@+id/text_date_Session" />
 
     <TextView
@@ -89,27 +91,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="20dp"
+        android:background="@null"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_add"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_exo" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/button_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/bc_white"
+        android:background="@null"
         android:clickable="true"
         android:focusable="true"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/baseline_food_bank_24"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/floatingActionButtonExo"
-        app:layout_constraintStart_toEndOf="@+id/button_session_info"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_exo" />
+        app:layout_constraintStart_toEndOf="@+id/button_session_info" />
 
 
     <ImageButton
@@ -117,12 +120,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:background="@color/bc_white"
+        android:layout_marginBottom="20dp"
+        android:background="@null"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/baseline_info_24_v2"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_exo" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

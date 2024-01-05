@@ -55,42 +55,87 @@ class ExoInventoryDetailsFragment : Fragment() {
         binding.exoName.setText(currentExo?.name)
         val PathOfImage = currentExo?.imagepath
 
-        if(currentExo!!.type == "Upper Body"){
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+        if(currentExo!!.type == "Chest"){
+            setAllButtonsRed()
+            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+        } else if(currentExo.type == "Back"){
+            setAllButtonsRed()
+            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+        } else if(currentExo.type == "Shoulders"){
+            setAllButtonsRed()
+            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+        } else if(currentExo.type == "Cardio"){
+            setAllButtonsRed()
+            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+        } else if(currentExo.type == "Arms"){
+            setAllButtonsRed()
+            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+        } else if(currentExo.type == "Core"){
+            setAllButtonsRed()
+            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
         } else if(currentExo.type == "Legs"){
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
+            setAllButtonsRed()
             binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
-        } else {
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+        }else {
+            setAllButtonsRed()
             binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
         }
 
         var state = currentExo.type
-        binding.buttonUpper.setOnClickListener {
-            state = "Upper Body"
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonChest.setOnClickListener {
+            state = "Chest"
             binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
         }
+
+        binding.buttonBack.setOnClickListener {
+            state = "Back"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonShoulders.setOnClickListener {
+            state = "Shoulders"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonCardio.setOnClickListener {
+            state = "Cardio"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonArms.setOnClickListener {
+            state = "Arms"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
+        binding.buttonCore.setOnClickListener {
+            state = "Core"
+            binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
+        }
+
         binding.buttonLower.setOnClickListener {
             state = "Legs"
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
             binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
         }
 
         binding.buttonOther.setOnClickListener {
             state = "Other"
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
             binding.textAnswerExo.text = state
+            setAllButtonsRed()
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
         }
         binding.textAnswerExo.text = state
 
@@ -242,5 +287,16 @@ class ExoInventoryDetailsFragment : Fragment() {
         fileOutputStream.flush()
         fileOutputStream.close()
         return Uri.fromFile(file)
+    }
+
+    private fun setAllButtonsRed(){
+        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonCore.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
     }
 }

@@ -35,33 +35,129 @@ class ExoInventoryFragment : Fragment() {
             refreshExosUI(it)
         })
 
-        binding.buttonUpperExos.setOnClickListener {
-            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonChest.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
 
-            viewModel.readExoByType("Upper Body").observe(viewLifecycleOwner) {
+            viewModel.readExoByType("Chest").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
             }
         }
 
-        binding.buttonLowerExos.setOnClickListener {
-            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonBack.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+
+            viewModel.readExoByType("Back").observe(viewLifecycleOwner) {
+                refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.buttonShoulders.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+
+            viewModel.readExoByType("Shoulders").observe(viewLifecycleOwner) {
+                refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.buttonCardio.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+
+            viewModel.readExoByType("Cardio").observe(viewLifecycleOwner) {
+                refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.buttonArms.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+
+            viewModel.readExoByType("Arms").observe(viewLifecycleOwner) {
+                refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.buttonCore.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
+
+            viewModel.readExoByType("Core").observe(viewLifecycleOwner) {
+                refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.buttonLower.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
 
             viewModel.readExoByType("Legs").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
             }
         }
 
-        binding.buttonAllExos.setOnClickListener {
-            binding.buttonUpperExos.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonLowerExos.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonAllExos.setBackgroundColor(resources.getColor(R.color.green))
+        binding.buttonOther.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
+
+            viewModel.readExoByType("Other").observe(viewLifecycleOwner) {
+                refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.buttonAll.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonAll.setBackgroundColor(resources.getColor(R.color.green))
 
             viewModel.readAllExoInventory.observe(viewLifecycleOwner) {
                 refreshExosUI(it)
+                if(it.isEmpty()){
+                    binding.textNoExos.visibility = View.VISIBLE
+                } else{
+                    binding.textNoExos.visibility = View.GONE
+                }
             }
         }
 
@@ -99,45 +195,15 @@ class ExoInventoryFragment : Fragment() {
         }
     }
 
-    private fun initializeExoInventory(){
-        val exo1 = ExoInventory(0, "Bench press", "drawable://"+R.drawable.bench, "Upper Body")
-        exo1.let { viewModel.addExoInventory(it) }
-        val exo10 = ExoInventory(0, "Inclined Bench press", "drawable://"+R.drawable.inclinebenchpresspng, "Upper Body")
-        exo10.let { viewModel.addExoInventory(it) }
-        val exo2 = ExoInventory(0, "Abs", "drawable://"+R.drawable.abs, "Upper Body")
-        exo2.let { viewModel.addExoInventory(it) }
-        val exo5 = ExoInventory(0, "Biceps curls", "drawable://"+R.drawable.dumbbell, "Upper Body")
-        exo5.let { viewModel.addExoInventory(it) }
-        val exo9 = ExoInventory(0, "Biceps hammers", "drawable://"+R.drawable.dumbbell, "Upper Body")
-        exo9.let { viewModel.addExoInventory(it) }
-        val exo7 = ExoInventory(0, "Cardio", "drawable://"+R.drawable.running, "Legs")
-        exo7.let { viewModel.addExoInventory(it) }
-        val exo8 = ExoInventory(0, "Triceps cord", "drawable://"+R.drawable.triceps, "Upper Body")
-        exo8.let { viewModel.addExoInventory(it) }
-        val exo11 = ExoInventory(0, "Leg press", "drawable://"+R.drawable.legpress, "Legs")
-        exo11.let { viewModel.addExoInventory(it) }
-        val exo12 = ExoInventory(0, "Leg extension", "drawable://"+R.drawable.legextension, "Legs")
-        exo12.let { viewModel.addExoInventory(it) }
-        val exo13 = ExoInventory(0, "Leg curl", "drawable://"+R.drawable.legcurl, "Legs")
-        exo13.let { viewModel.addExoInventory(it) }
-        val exo3 = ExoInventory(0, "Standing calves", "drawable://"+R.drawable.calves, "Legs")
-        exo3.let { viewModel.addExoInventory(it) }
-        val exo4 = ExoInventory(0, "Sitting calves", "drawable://"+R.drawable.calves, "Legs")
-        exo4.let { viewModel.addExoInventory(it) }
-        val exo17 = ExoInventory(0, "Squats", "drawable://"+R.drawable.squats, "Legs")
-        exo17.let { viewModel.addExoInventory(it) }
-        val exo18 = ExoInventory(0, "Bulgrian split squats", "drawable://"+R.drawable.bulgarian, "Legs")
-        exo18.let { viewModel.addExoInventory(it) }
-        val exo14 = ExoInventory(0, "Lat pulldown", "drawable://"+R.drawable.latpulldown, "Upper Body")
-        exo14.let { viewModel.addExoInventory(it) }
-        val exo15 = ExoInventory(0, "Seated row", "drawable://"+R.drawable.cablerow, "Upper Body")
-        exo15.let { viewModel.addExoInventory(it) }
-        val exo16 = ExoInventory(0, "Deadlift", "drawable://"+R.drawable.deadlift, "Upper Body")
-        exo16.let { viewModel.addExoInventory(it) }
-        val exo6 = ExoInventory(0, "Pull ups", "drawable://"+R.drawable.pullups, "Upper Body")
-        exo6.let { viewModel.addExoInventory(it) }
-        val exo19 = ExoInventory(0, "Shoulder press", "drawable://"+R.drawable.shoulderpress, "Upper Body")
-        exo19.let { viewModel.addExoInventory(it) }
-
+    private fun setAllButtonsRed(){
+        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonCore.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonAll.setBackgroundColor(resources.getColor(R.color.red))
     }
 }

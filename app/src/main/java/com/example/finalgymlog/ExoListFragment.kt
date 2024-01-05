@@ -38,7 +38,6 @@ class ExoListFragment : Fragment() {
         _binding = FragmentExoListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val args: ExoListFragmentArgs by navArgs()
         val sessionID = sharedViewModel.getCurrentSession().value?.id
         val session = sharedViewModel.getCurrentSession().value
 
