@@ -86,16 +86,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/floatingActionButtonExo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="18dp"
         android:layout_marginBottom="20dp"
         android:background="@null"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/baseline_add_circle_72"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -26,24 +26,10 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_stats"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_add_exo" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="@null"
-        android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <ImageButton
         android:id="@+id/button_add_exo"
         android:layout_width="wrap_content"
@@ -58,34 +44,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <ImageButton
-        android:id="@+id/button_general_info"
-        android:background="@null"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/baseline_info_24_v2"
-        android:focusable="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="visible"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="18dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/button_stats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/baseline_assessment_24"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="30dp"
-        app:layout_constraintStart_toEndOf="@+id/button_general_info"
-        android:layout_marginBottom="18dp"/>
+        <ImageButton
+            android:id="@+id/button_general_info"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/baseline_info_24_v2"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"/>
+
+        <ImageButton
+            android:id="@+id/button_stats"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/baseline_assessment_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_general_info" />
+
+        <ImageButton
+            android:id="@+id/button_fridge"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/baseline_food_bank_24"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/floatingActionButton" />
+
+        <ImageButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/baseline_add_circle_72"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/floatingActionButton" />
+
+
+    </LinearLayout>
+
+
 
     <ImageButton
         android:id="@+id/button_male"
@@ -127,17 +152,4 @@
         android:visibility="gone"/>
 
 
-    <ImageButton
-        android:id="@+id/button_fridge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:background="@null"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/baseline_food_bank_24"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

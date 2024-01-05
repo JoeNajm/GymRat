@@ -135,7 +135,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_lower_exos" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_exo_type" />
 
     <TextView
         android:id="@+id/empty_inventory_message"
@@ -144,53 +144,130 @@
         android:text="Your exercises inventory is empty! Click on the book logo at the sessions list page to add items!"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_exo_type">
 
+    </TextView>
 
-    <Button
-        android:id="@+id/button_upper_exos"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout_exo_type"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Upper Body"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:background="@color/green"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
-
-    <Button
-        android:id="@+id/button_lower_exos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/red"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="Legs"
-        android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/button_all_exos"
-        app:layout_constraintStart_toEndOf="@+id/button_upper_exos"
-        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
-
-    <Button
-        android:id="@+id/button_all_exos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/red"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="All"
-        android:visibility="visible"
-        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_exo_status" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_exo_status">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView_exo_type_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_exo_type_buttons1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_chest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Chest"></Button>
+
+                <Button
+                    android:id="@+id/button_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Back"></Button>
+
+                <Button
+                    android:id="@+id/button_shoulders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Shoulders"></Button>
+
+                <Button
+                    android:id="@+id/button_cardio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Cardio"></Button>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView_exo_type_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayout_exo_type_buttons2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_arms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+
+                    android:text="Arms"></Button>
+
+                <Button
+                    android:id="@+id/button_core"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Core"></Button>
+
+                <Button
+                    android:id="@+id/button_lower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Legs"></Button>
+
+                <Button
+                    android:id="@+id/button_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/red"
+                    android:text="Other"></Button>
+
+                <Button
+                    android:id="@+id/button_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@color/green"
+                    android:text="All"></Button>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
