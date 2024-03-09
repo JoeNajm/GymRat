@@ -36,7 +36,7 @@ class ExoListViewHolder(
             var found = false
             for(e in savedExoList!!){
                 println(e.name.lowercase())
-                if(name in e.name.lowercase()){
+                if(name == e.name.lowercase()){
                     found = true
                     if(e.imagepath.contains("drawable", ignoreCase = true)){
                         val PathOfImage = e.imagepath

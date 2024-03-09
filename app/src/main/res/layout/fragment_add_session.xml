@@ -35,9 +35,9 @@
         <Button
             android:id="@+id/button_upper"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="@color/red"
+            android:layout_weight="1"
+            android:background="@color/green"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Upper Body"
@@ -64,13 +64,83 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="@color/green"
+            android:background="@color/red"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="Other">
 
         </Button>
     </LinearLayout>
+
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView_upper_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_session_type"
+        >
+
+    <LinearLayout
+        android:id="@+id/linearLayout_upper_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_chest"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/green"
+            android:text="Chest"
+            android:layout_marginStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintStart_toStartOf="parent">
+        </Button>
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:layout_marginStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Back">
+
+        </Button>
+
+        <Button
+            android:id="@+id/button_shoulders"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:layout_marginStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Shoulders">
+
+        </Button>
+
+        <Button
+            android:id="@+id/button_arms"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:layout_marginStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Arms">
+
+        </Button>
+    </LinearLayout>
+    </HorizontalScrollView>
+
 
     <LinearLayout
         android:id="@+id/linearLayout_name"
@@ -80,7 +150,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_session_type">
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView_upper_buttons">
 
         <TextView
             android:id="@+id/session_name"
@@ -98,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
-            android:hint="Name"
+            android:text="Upper Body (Chest)"
             android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>

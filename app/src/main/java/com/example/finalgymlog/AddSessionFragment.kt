@@ -42,7 +42,36 @@ class AddSessionFragment : Fragment() {
             binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
             binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
             binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
-            binding.addSessionName.setText("Upper Body")
+
+            binding.horizontalScrollViewUpperButtons.visibility = View.VISIBLE
+
+            setAllButtonsRed()
+            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.addSessionName.setText("Upper Body (Chest)")
+
+        }
+        binding.buttonChest.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.addSessionName.setText("Upper Body (Chest)")
+        }
+
+        binding.buttonBack.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+            binding.addSessionName.setText("Upper Body (Back)")
+        }
+
+        binding.buttonShoulders.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+            binding.addSessionName.setText("Upper Body (Shoulders)")
+        }
+
+        binding.buttonArms.setOnClickListener {
+            setAllButtonsRed()
+            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+            binding.addSessionName.setText("Upper Body (Arms)")
         }
 
         binding.buttonLower.setOnClickListener {
@@ -50,6 +79,8 @@ class AddSessionFragment : Fragment() {
             binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
             binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
             binding.addSessionName.setText("Legs")
+
+            binding.horizontalScrollViewUpperButtons.visibility = View.GONE
         }
 
         binding.buttonOther.setOnClickListener {
@@ -57,6 +88,8 @@ class AddSessionFragment : Fragment() {
             binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
             binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
             binding.addSessionName.setText("")
+
+            binding.horizontalScrollViewUpperButtons.visibility = View.GONE
         }
 
         binding.addBtn.setOnClickListener {
@@ -65,6 +98,13 @@ class AddSessionFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun setAllButtonsRed(){
+        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
     }
 
     private fun insertDataToDatabase(formattedDate: String) {
