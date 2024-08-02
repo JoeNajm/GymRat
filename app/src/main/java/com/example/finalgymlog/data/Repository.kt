@@ -17,6 +17,10 @@ class SessionRepository(private val sessionDao: SessionDao) {
     suspend fun deleteSession(session: Session){
         sessionDao.deleteSession(session)
     }
+
+    fun getDateFromParentID(parentId: Int): String {
+        return sessionDao.getDateFromParentID(parentId)
+    }
 }
 
 class ExoRepository(private val exoDao: ExoDao) {
@@ -40,6 +44,11 @@ class ExoRepository(private val exoDao: ExoDao) {
 
     fun deleteExoByParentId(parentId: Int){
         exoDao.deleteExoByParentId(parentId)
+    }
+
+    fun getAllInstances(exo_name: String?): LiveData<List<Exo>> {
+        println("Getting all instances of $exo_name")
+        return exoDao.getAllInstances(exo_name)
     }
 }
 

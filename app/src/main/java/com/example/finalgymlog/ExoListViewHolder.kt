@@ -44,8 +44,10 @@ class ExoListViewHolder(
                         exoListItemBinding.exoImage.setImageDrawable(ContextCompat.getDrawable(context, intId))
                     } else{
                         val PathOfImage = e.imagepath
+                        println("Image path0: ${PathOfImage}")
                         val file = File(context.filesDir, PathOfImage)
                         val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+                        println("Image path: ${bitmap.toString()}")
                         exoListItemBinding.exoImage.setImageBitmap(bitmap)
                     }
                 }

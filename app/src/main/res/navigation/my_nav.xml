@@ -85,6 +85,9 @@
         <action
             android:id="@+id/action_exoInfoFragment_to_exoListFragment"
             app:destination="@id/exoListFragment" />
+        <action
+            android:id="@+id/action_exoInfoFragment_to_exoHistoryFragment"
+            app:destination="@id/exoHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/sessionInfoFragment"
@@ -232,5 +235,14 @@
         <action
             android:id="@+id/action_addExoFromInventoryFragment_to_exoListFragment"
             app:destination="@id/exoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exoHistoryFragment"
+        android:name="com.example.finalgymlog.ExoHistoryFragment"
+        android:label="fragment_exo_history"
+        tools:layout="@layout/fragment_exo_history" >
+        <action
+            android:id="@+id/action_exoHistoryFragment_to_exoInfoFragment"
+            app:destination="@id/exoInfoFragment" />
     </fragment>
 </navigation>

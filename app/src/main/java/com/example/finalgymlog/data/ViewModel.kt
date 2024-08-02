@@ -36,6 +36,10 @@ class SessionViewModel(application: Application) : AndroidViewModel(application)
             repository.deleteSession(session)
         }
     }
+
+    fun getDateFromParentID(parentId: Int): String {
+        return repository.getDateFromParentID(parentId)
+    }
 }
 
 
@@ -72,6 +76,10 @@ class ExoViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun deleteExoByParentId(parentId: Int){
         repository.deleteExoByParentId(parentId)
+    }
+
+    fun getAllInstances(exo_name: String): LiveData<List<Exo>> {
+        return repository.getAllInstances(exo_name)
     }
 }
 

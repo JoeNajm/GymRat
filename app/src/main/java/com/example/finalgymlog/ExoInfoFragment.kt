@@ -111,6 +111,10 @@ class ExoInfoFragment : Fragment() {
             findNavController().navigate(R.id.action_exoInfoFragment_to_exoListFragment)
         }
 
+        binding.buttonExoHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_exoInfoFragment_to_exoHistoryFragment)
+        }
+
         return root
     }
 

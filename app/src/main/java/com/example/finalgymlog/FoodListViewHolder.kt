@@ -17,7 +17,5 @@ class FoodListViewHolder(
         foodListItemBinding.foodEnergy.text =  "Energy: " + food.energy.toString() + " kcal"
         foodListItemBinding.foodProteins.text = "Protein: " +  food.protein.toString() + " g"
         foodListItemBinding.foodType.text ="Type: " + food.type
-
     }
-
 }

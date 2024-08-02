@@ -24,6 +24,9 @@ interface SessionDao {
     @Delete
     suspend fun deleteSession(session: Session)
 
+    @Query("SELECT date FROM session_table WHERE id = :parentId")
+    fun getDateFromParentID(parentId: Int): String
+
 }
 
 @Dao
@@ -46,6 +49,9 @@ interface ExoDao {
 
     @Query("DELETE FROM exo_table WHERE parentId = :parentId")
     abstract fun deleteExoByParentId(parentId: Int)
+
+    @Query("SELECT * FROM exo_table WHERE name = :exo_name ORDER BY id DESC")
+    fun getAllInstances(exo_name: String?): LiveData<List<Exo>>
 }
 
 @Dao
