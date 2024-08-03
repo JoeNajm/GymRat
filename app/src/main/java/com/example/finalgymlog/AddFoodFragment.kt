@@ -52,15 +52,15 @@ class AddFoodFragment : Fragment() {
 
         binding.buttonNewFood.setOnClickListener {
             STATE = "new"
-            binding.buttonNewFood.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonExistingFood.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonNewFood.backgroundTintList = resources.getColorStateList(R.color.green)
+            binding.buttonExistingFood.backgroundTintList = resources.getColorStateList(R.color.red)
             binding.textFoodStatus.setText("New Food")
             display(STATE, size_of_fridge)
         }
         binding.buttonExistingFood.setOnClickListener {
             STATE = "fridge"
-            binding.buttonNewFood.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonExistingFood.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonNewFood.backgroundTintList = resources.getColorStateList(R.color.red)
+            binding.buttonExistingFood.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.textFoodStatus.setText("From Fridge")
             display(STATE, size_of_fridge)
         }

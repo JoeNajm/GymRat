@@ -37,7 +37,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonChest.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Chest").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -51,7 +51,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonBack.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Back").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -65,7 +65,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonShoulders.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonShoulders.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Shoulders").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -79,7 +79,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonCardio.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonCardio.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Cardio").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -93,7 +93,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonArms.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Arms").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -107,7 +107,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonCore.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonCore.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Core").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -121,7 +121,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonLower.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Legs").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -135,7 +135,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonOther.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readExoByType("Other").observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -149,7 +149,7 @@ class ExoInventoryFragment : Fragment() {
 
         binding.buttonAll.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonAll.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonAll.backgroundTintList = resources.getColorStateList(R.color.green)
 
             viewModel.readAllExoInventory.observe(viewLifecycleOwner) {
                 refreshExosUI(it)
@@ -196,14 +196,14 @@ class ExoInventoryFragment : Fragment() {
     }
 
     private fun setAllButtonsRed(){
-        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonCore.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonAll.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonShoulders.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonCardio.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonCore.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonAll.backgroundTintList = resources.getColorStateList(R.color.red)
     }
 }

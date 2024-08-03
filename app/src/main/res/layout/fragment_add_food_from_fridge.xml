@@ -121,6 +121,10 @@
         android:layout_marginTop="50dp"
         android:text="Add"
         android:visibility="visible"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_quantity_food" />

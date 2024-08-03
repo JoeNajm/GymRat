@@ -75,7 +75,8 @@
                     android:id="@+id/button_chest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:layout_marginStart="10dp"
                     android:text="Chest">
                 </Button>
@@ -85,7 +86,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:text="Back">
                 </Button>
 
@@ -94,7 +96,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:text="Shoulders">
                 </Button>
 
@@ -103,7 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:text="Cardio">
                 </Button>
 
@@ -127,7 +131,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
 
                     android:text="Arms">
                 </Button>
@@ -137,7 +142,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:text="Core">
                 </Button>
 
@@ -146,7 +152,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:text="Legs">
                 </Button>
 
@@ -155,7 +162,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/red"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/red"
                     android:text="Other">
                 </Button>
 
@@ -164,7 +172,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:background="@color/green"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="@color/green"
                     android:text="All">
                 </Button>
             </LinearLayout>

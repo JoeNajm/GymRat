@@ -10,17 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.finalgymlog.data.Exo
-import com.example.finalgymlog.data.ExoInventory
 import com.example.finalgymlog.data.ExoInventoryViewModel
 import com.example.finalgymlog.data.ExoViewModel
-import com.example.finalgymlog.data.Session
-import com.example.finalgymlog.data.SessionViewModel
 import com.example.finalgymlog.data.SharedViewModel
 import com.example.finalgymlog.databinding.FragmentExoInfoBinding
-import com.example.finalgymlog.databinding.FragmentExoListBinding
-import com.example.finalgymlog.databinding.FragmentSessionListBinding
 import java.io.File
 
 
@@ -51,7 +45,6 @@ class ExoInfoFragment : Fragment() {
 
         val savedExo = sharedViewModel.getCurrentExoInventoryList()
 
-        println("savedExoList: $savedExo")
         val name = currentExo!!.name.lowercase()
         var found = false
         for(e in savedExo.value!!)

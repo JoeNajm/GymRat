@@ -45,7 +45,7 @@ class AddExoFragment : Fragment() {
 
         if ("arms" in name_of_session?.toLowerCase()!!) {
             setAllButtonsRed()
-            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Arms").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -53,7 +53,7 @@ class AddExoFragment : Fragment() {
             }
         } else if ("back" in name_of_session?.toLowerCase()!!) {
             setAllButtonsRed()
-            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Back").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -61,7 +61,7 @@ class AddExoFragment : Fragment() {
             }
         } else if ("chest" in name_of_session?.toLowerCase()!!) {
             setAllButtonsRed()
-            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Chest").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -69,7 +69,7 @@ class AddExoFragment : Fragment() {
             }
         } else if ("legs" in name_of_session?.toLowerCase()!!) {
             setAllButtonsRed()
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Legs").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -77,7 +77,7 @@ class AddExoFragment : Fragment() {
             }
         } else if ("cardio" in name_of_session?.toLowerCase()!!) {
             setAllButtonsRed()
-            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonCardio.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Cardio").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -85,7 +85,7 @@ class AddExoFragment : Fragment() {
             }
         } else if ("core" in name_of_session?.toLowerCase()!!) {
             setAllButtonsRed()
-            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonCore.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Core").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -105,16 +105,16 @@ class AddExoFragment : Fragment() {
 
         binding.buttonNewExo.setOnClickListener {
             STATE = "new"
-            binding.buttonNewExo.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonExistingExo.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonNewExo.backgroundTintList = resources.getColorStateList(R.color.green)
+            binding.buttonExistingExo.backgroundTintList = resources.getColorStateList(R.color.red)
             binding.linearLayoutExoType.visibility = View.GONE
             binding.textExoStatus.setText("New Exo")
             display(STATE, size_of_inventory)
         }
         binding.buttonExistingExo.setOnClickListener {
             STATE = "inventory"
-            binding.buttonNewExo.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonExistingExo.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonNewExo.backgroundTintList = resources.getColorStateList(R.color.red)
+            binding.buttonExistingExo.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.linearLayoutExoType.visibility = View.VISIBLE
             binding.textExoStatus.setText("Existing Exercises")
             display(STATE, size_of_inventory)
@@ -122,7 +122,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonChest.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Chest").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -132,7 +132,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonBack.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Back").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -142,7 +142,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonShoulders.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonShoulders.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Shoulders").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -152,7 +152,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonCardio.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonCardio.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Cardio").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -162,7 +162,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonArms.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Arms").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -172,7 +172,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonCore.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonCore.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonCore.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Core").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -182,7 +182,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonLower.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Legs").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -192,7 +192,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonOther.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readExoByType("Other").observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -202,7 +202,7 @@ class AddExoFragment : Fragment() {
 
         binding.buttonAll.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonAll.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonAll.backgroundTintList = resources.getColorStateList(R.color.green)
             mExoInventoryViewModel.readAllExoInventory.observe(viewLifecycleOwner) {
                 refreshInventoryUI(it)
                 size_of_inventory = it.size
@@ -280,14 +280,14 @@ class AddExoFragment : Fragment() {
     }
 
     private fun setAllButtonsRed(){
-        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonCardio.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonCore.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonAll.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonShoulders.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonCardio.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonCore.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonAll.backgroundTintList = resources.getColorStateList(R.color.red)
     }
 }

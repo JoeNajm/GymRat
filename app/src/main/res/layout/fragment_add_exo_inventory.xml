@@ -108,7 +108,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/green"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/green"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Chest"></Button>
@@ -118,7 +119,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Back"></Button>
@@ -128,7 +130,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Shoulders"></Button>
@@ -138,7 +141,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Cardio"></Button>
@@ -165,7 +169,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Arms" />
@@ -175,7 +180,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Core" />
@@ -185,7 +191,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Legs"></Button>
@@ -195,7 +202,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:background="@color/red"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="@color/red"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="Other"></Button>
@@ -211,6 +219,10 @@
         android:layout_marginBottom="10dp"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

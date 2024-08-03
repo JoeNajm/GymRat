@@ -39,54 +39,54 @@ class AddSessionFragment : Fragment() {
 
 
         binding.buttonUpper.setOnClickListener {
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonUpper.backgroundTintList = resources.getColorStateList(R.color.green)
+            binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.red)
+            binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.red)
 
             binding.horizontalScrollViewUpperButtons.visibility = View.VISIBLE
 
             setAllButtonsRed()
-            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.addSessionName.setText("Upper Body (Chest)")
 
         }
         binding.buttonChest.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonChest.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.addSessionName.setText("Upper Body (Chest)")
         }
 
         binding.buttonBack.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonBack.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.addSessionName.setText("Upper Body (Back)")
         }
 
         binding.buttonShoulders.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonShoulders.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.addSessionName.setText("Upper Body (Shoulders)")
         }
 
         binding.buttonArms.setOnClickListener {
             setAllButtonsRed()
-            binding.buttonArms.setBackgroundColor(resources.getColor(R.color.green))
+            binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.green)
             binding.addSessionName.setText("Upper Body (Arms)")
         }
 
         binding.buttonLower.setOnClickListener {
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.green)
+            binding.buttonUpper.backgroundTintList = resources.getColorStateList(R.color.red)
+            binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.red)
             binding.addSessionName.setText("Legs")
 
             binding.horizontalScrollViewUpperButtons.visibility = View.GONE
         }
 
         binding.buttonOther.setOnClickListener {
-            binding.buttonOther.setBackgroundColor(resources.getColor(R.color.green))
-            binding.buttonUpper.setBackgroundColor(resources.getColor(R.color.red))
-            binding.buttonLower.setBackgroundColor(resources.getColor(R.color.red))
+            binding.buttonOther.backgroundTintList = resources.getColorStateList(R.color.green)
+            binding.buttonUpper.backgroundTintList = resources.getColorStateList(R.color.red)
+            binding.buttonLower.backgroundTintList = resources.getColorStateList(R.color.red)
             binding.addSessionName.setText("")
 
             binding.horizontalScrollViewUpperButtons.visibility = View.GONE
@@ -101,10 +101,10 @@ class AddSessionFragment : Fragment() {
     }
 
     private fun setAllButtonsRed(){
-        binding.buttonChest.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonBack.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonShoulders.setBackgroundColor(resources.getColor(R.color.red))
-        binding.buttonArms.setBackgroundColor(resources.getColor(R.color.red))
+        binding.buttonChest.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonBack.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonShoulders.backgroundTintList = resources.getColorStateList(R.color.red)
+        binding.buttonArms.backgroundTintList = resources.getColorStateList(R.color.red)
     }
 
     private fun insertDataToDatabase(formattedDate: String) {
